@@ -1,0 +1,43 @@
+body {
+    font-family: 'Manjari', sans-serif;
+}
+
+.custom-navbar {
+    position: absolute;
+    z-index: 1000;
+}
+
+.custom-navbar-collapse {
+    width: 250px;
+    position: absolute;
+    top: 0;
+    z-index: 500;
+}
+
+.custom-navbar-collapse h6 {
+    margin-left: 65px;
+}
+
+.custom-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.custom-menu-item {
+    color: white;
+
+}
+
+.custom-menu-item:hover {
+    background-color: var(--primary)
+}
+
+.custom-header {
+    background: linear-gradient(45deg, rgba(0, 149, 149, 0.4), rgba(0, 149, 149, 0.8)), url(../images/bg-1.jpg) center top no-repeat;
+    background-size: cover;
+}
+
+.custom-header-box {
+    height: 120px;
+    width: 500px;
+}
