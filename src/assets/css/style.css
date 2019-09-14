@@ -41,3 +41,9 @@ body {
     height: 120px;
     width: 500px;
 }
+
+.section-title {
+    width: 320px;
+    border-bottom: 4px solid var(--primary);
+    margin: 0 auto;
+}
