@@ -41,3 +41,7 @@ body {
     height: 120px;
     width: 500px;
 }
+
+.custom-logo {
+    font-family: 'kgsweetnsassy-webfont';
+}
