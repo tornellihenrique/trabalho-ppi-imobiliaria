@@ -3,6 +3,11 @@
     --secondary: #343a40;
 }
 
+ @font-face {
+     font-family: 'kgsweetnsassy-webfont';
+     src: url('../fonts/kgsweetnsassy-webfont.ttf') format('truetype');
+ }
+
 .pointer {
     cursor: pointer;
 }
