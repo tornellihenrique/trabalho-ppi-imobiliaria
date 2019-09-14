@@ -48,6 +48,7 @@ body {
 .values-section {
     background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(../images/bg-2.png) center no-repeat;
     background-size: cover;
+    height: 400px;
 }
 
 .section-title {
@@ -58,4 +59,8 @@ body {
 
 .custom-logo {
     font-family: 'kgsweetnsassy-webfont';
+}
+
+.icon-box {
+    background-color: white;
 }
