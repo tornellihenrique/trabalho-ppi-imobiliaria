@@ -1,6 +1,6 @@
 :root {
     --primary: rgb(0, 149, 149);
-    --primary-alt: rgb(0, 216, 216);
+    --primary-alt: rgb(0, 190, 190);
     --secondary: #343a40;
 }
 
@@ -19,6 +19,16 @@
 
 .bg-secondary {
     background-color: var(--secondary) !important;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-alt);
+    border-color: var(--primary-alt);
 }
 
 .btn-floating {

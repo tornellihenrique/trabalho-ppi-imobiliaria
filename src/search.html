@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Sweet Home</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Manjari&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/predefinied-styles.css">
+    <script src="https://kit.fontawesome.com/ebe8a9ac3c.js"></script>
+</head>
+
+<body>
+    <div class="pos-f-t">
+        <nav class="navbar navbar-dark fixed-top bg-transparent">
+            <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <button class="searchbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#searchbarToggleExternalContent" aria-controls="searchbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-search align-middle text-white"></i>
+            </button>
+        </nav>
+        <div class="collapse custom-navbar-collapse fixed-top" id="navbarToggleExternalContent">
+            <div class="custom-menu-bg bg-dark vh-100 pt-3">
+                <h6 class="text-white h4 pl-4">Menu</h6>
+                <ul class="custom-menu mt-3">
+                    <li class="custom-menu-item px-3 py-2 pointer">
+                        <a class="text-decoration-none text-white">Login</a>
+                    </li>
+                    <li class="custom-menu-item px-3 py-2 pointer">
+                        <a class="text-decoration-none text-white" href="home.html">Home</a>
+                    </li>
+                    <li class="custom-menu-item px-3 py-2 pointer">
+                        <a class="text-decoration-none text-white" href="search.html">Busca de imóveis</a>
+                    </li>
+                    <li class="custom-menu-item px-3 py-2 pointer">
+                        <a class="text-decoration-none text-white">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="collapse custom-searchbar-collapse" id="searchbarToggleExternalContent">
+            <div class="bg-dark vh-100 pt-3 text-white">
+                <h5 class="pl-4 pb-3 bg-secondary search-title font-weight-bolder">Pesquisa de imóveis</h5>
+                <div class="px-4 h-100">
+                    <form action="" method="GET" class="h-100">
+                        <div class="d-flex justify-content-between mt-4">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="aquisition" name="purpose" value="aquisition" class="custom-control-input">
+                                <label class="custom-control-label" for="aquisition">Aquisição</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="location" name="purpose" value="location" class="custom-control-input">
+                                <label class="custom-control-label" for="location">Locação</label>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <select class="custom-select" name="neighborhood">
+                                <option selected disabled>Bairro</option>
+                                <option value="1">Santa Mônica</option>
+                                <option value="2">Centro</option>
+                                <option value="3">Santa Luzia</option>
+                            </select>
+                        </div>
+                        <div class="mt-3">
+                            <div class="d-flex align-items-baseline mb-2">
+                                <label for="minValue" class="w-50 mb-0">Valor mínimo</label>
+                                <div class="input-group w-50">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="currency">R$</span>
+                                    </div>
+                                    <input type="number" class="form-control" id="minValue" min="0" max="200000" value="0" name="minValue">
+                                </div>
+                            </div>
+                            <input type="range" class="custom-range input-range-min" min="0" max="200000" step="100" value="0" aria-describedby="currency">
+                        </div>
+                        <div class="mt-3">
+                            <div class="d-flex align-items-baseline mb-2">
+                                <label for="maxValue" class="w-50 mb-0">Valor máximo</label>
+                                <div class="input-group w-50">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="currency">R$</span>
+                                    </div>
+                                    <input type="number" class="form-control" id="maxValue" min="0" max="200000" value="0" name="maxValue">
+                                </div>
+                            </div>
+                            <input type="range" class="custom-range input-range-max" min="0" max="200000" step="100" value="0" aria-describedby="currency">
+                        </div>
+                        <div class="mt-3">
+                            <input type="text" class="form-control" id="tags" name="tags" placeholder="Outras informações">
+                        </div>
+                        <div class="pull-bottom mb-3 px-4 d-flex justify-content-between w-100">
+                            <button type="reset" class="btn btn-secondary">Limpar</button>
+                            <button type="submit" class="btn btn-primary">Buscar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mt-5 pt-3">
+        <section>
+            <h2 class="text-center">Resultado de busca</h2>
+            <div class="mt-4">
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <div class="card realty-card">
+                            <div class="row no-glutters">
+                                <div class="col-sm-12 col-lg-3">
+                                    <div class="card-body h-100">
+                                        <h5 class="card-title">Título imóvel</h5>
+                                        <dl class="row">
+                                            <dt class="col-6">Preço</dt>
+                                            <dd class="col-6">R$ 200.000</dd>
+                                            <dt class="col-6">Número de quartos</dt>
+                                            <dd class="col-6">3 quartos</dd>
+                                            <dt class="col-6">Área construida</dt>
+                                            <dd class="col-6">300 m²</dd>
+                                        </dl>
+                                        <a href="#" class="btn btn-primary pull-bottom ml-4">Tenho interesse</a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-lg-9 d-flex align-items-center">
+                                    <div class="row align-items-center mt-3">
+                                        <div class="col-12 col-sm-6 col-md-4 mb-2">
+                                            <img src="assets/images/house1.jpg" alt="" class="img-thumbnail img-hover-effect">
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-md-4 mb-2">
+                                            <img src="assets/images/house2.jpg" alt="" class="img-thumbnail img-hover-effect">
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-md-4 mb-2">
+                                            <img src="assets/images/house3.jpg" alt="" class="img-thumbnail img-hover-effect">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-4">
+                        <div class="card realty-card">
+                            <div class="row no-glutters">
+                                <div class="col-sm-12 col-lg-3">
+                                    <div class="card-body h-100">
+                                        <h5 class="card-title">Título imóvel</h5>
+                                        <dl class="row">
+                                            <dt class="col-6">Preço</dt>
+                                            <dd class="col-6">R$ 100.000</dd>
+                                            <dt class="col-6">Número de quartos</dt>
+                                            <dd class="col-6">2 quartos</dd>
+                                            <dt class="col-6">Área construida</dt>
+                                            <dd class="col-6">200 m²</dd>
+                                        </dl>
+                                        <a href="#" class="btn btn-primary pull-bottom ml-4">Tenho interesse</a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-lg-9 d-flex align-items-center">
+                                    <div class="row align-items-center mt-3">
+                                        <div class="col-12 col-sm-6 col-md-4 mb-2">
+                                            <img src="assets/images/house2.jpg" alt="" class="img-thumbnail img-hover-effect">
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-md-4 mb-2">
+                                            <img src="assets/images/house1.jpg" alt="" class="img-thumbnail img-hover-effect">
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-md-4 mb-2">
+                                            <img src="assets/images/house3.jpg" alt="" class="img-thumbnail img-hover-effect">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-4">
+                        <div class="card realty-card">
+                            <div class="row no-glutters">
+                                <div class="col-sm-12 col-lg-3">
+                                    <div class="card-body h-100">
+                                        <h5 class="card-title">Título imóvel</h5>
+                                        <dl class="row">
+                                            <dt class="col-6">Preço</dt>
+                                            <dd class="col-6">R$ 500.000</dd>
+                                            <dt class="col-6">Número de quartos</dt>
+                                            <dd class="col-6">5 quartos</dd>
+                                            <dt class="col-6">Área construida</dt>
+                                            <dd class="col-6">500 m²</dd>
+                                        </dl>
+                                        <a href="#" class="btn btn-primary pull-bottom ml-4">Tenho interesse</a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-lg-9 d-flex align-items-center">
+                                    <div class="row align-items-center mt-3">
+                                        <div class="col-12 col-sm-6 col-md-4 mb-2">
+                                            <img src="assets/images/house3.jpg" alt="" class="img-thumbnail img-hover-effect">
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-md-4 mb-2">
+                                            <img src="assets/images/house2.jpg" alt="" class="img-thumbnail img-hover-effect">
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-md-4 mb-2">
+                                            <img src="assets/images/house1.jpg" alt="" class="img-thumbnail img-hover-effect">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer class="page-footer font-small bg-secondary text-white pt-4">
+        <div class="container">
+            <ul class="list-unstyled list-inline text-center">
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-fb mx-1">
+                        <i class="fab fa-facebook-f"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-tw mx-1">
+                        <i class="fab fa-twitter"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-gplus mx-1">
+                        <i class="fab fa-google-plus-g"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-li mx-1">
+                        <i class="fab fa-linkedin-in"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-dribbble mx-1">
+                        <i class="fab fa-dribbble"> </i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-info py-3 d-flex align-items-center justify-content-center">
+            © 2019
+            <a class="text-decoration-none ml-2" href="http://www.ufu.br/">UFU-MG</a>
+        </div>
+    </footer>
+    <script src="assets/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script>
+        var range1 = document.querySelector('.input-range-min');
+        var field1 = document.getElementById('minValue');
+        var range2 = document.querySelector('.input-range-max');
+        var field2 = document.getElementById('maxValue');
+
+        range1.addEventListener('input', function(e) {
+            field1.value = e.target.value;
+        });
+        field1.addEventListener('input', function(e) {
+            range1.value = e.target.value;
+        });
+
+        range2.addEventListener('input', function(e) {
+            field2.value = e.target.value;
+        });
+        field2.addEventListener('input', function(e) {
+            range2.value = e.target.value;
+        });
+
+        function updateValue(e) {
+            var sibling = e.target.previousElementSibling || e.target.nextElementSibling;
+            sibling.value = e.target.value;
+        }
+    </script>
+</body>
+
+</html>
