@@ -9,9 +9,7 @@ body {
 
 .custom-navbar-collapse {
     width: 250px;
-    position: absolute;
-    top: 0;
-    z-index: 500;
+    z-index: 1000;
 }
 
 .custom-navbar-collapse h6 {
@@ -40,6 +38,11 @@ body {
 .custom-header-box {
     height: 120px;
     width: 500px;
+}
+
+.values-section {
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(../images/bg-2.png) center no-repeat;
+    background-size: cover;
 }
 
 .section-title {
