@@ -1,12 +1,13 @@
 :root {
     --primary: rgb(0, 149, 149);
+    --primary-alt: rgb(0, 216, 216);
     --secondary: #343a40;
 }
 
- @font-face {
-     font-family: 'kgsweetnsassy-webfont';
-     src: url('../fonts/kgsweetnsassy-webfont.ttf') format('truetype');
- }
+@font-face {
+    font-family: 'kgsweetnsassy-webfont';
+    src: url('../fonts/kgsweetnsassy-webfont.ttf') format('truetype');
+}
 
 .pointer {
     cursor: pointer;
@@ -18,4 +19,23 @@
 
 .bg-secondary {
     background-color: var(--secondary) !important;
+}
+
+.btn-floating {
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+    overflow: hidden;
+    transition: all .2s ease-in-out;
+    margin: 10px;
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+    width: 47px;
+    height: 47px;
+}
+
+.btn-floating i {
+    margin-top: 14px;
 }
