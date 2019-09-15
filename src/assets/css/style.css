@@ -1,4 +1,4 @@
-body {
+* {
     font-family: 'Manjari', sans-serif;
 }
 
@@ -76,6 +76,7 @@ body {
     background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url(../images/bg-2.png) center no-repeat;
     background-size: cover;
     min-height: 440px;
+    background-attachment: fixed;
 }
 
 .missions-section {}

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Sweet Home Alabama</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+
+    <link href="https://fonts.googleapis.com/css?family=Manjari&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/predefinied-styles.css">
+    <script src="https://kit.fontawesome.com/ebe8a9ac3c.js"></script>
+</head>
+
+<body>
+    <div class="pos-f-t">
+        <nav class="navbar navbar-dark fixed-top bg-transparent">
+            <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse"
+                data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+        <div class="collapse custom-navbar-collapse fixed-top" id="navbarToggleExternalContent">
+            <div class="custom-menu-bg bg-dark vh-100 pt-3">
+                <h6 class="text-white h4 pl-4">Menu</h6>
+                <ul class="custom-menu mt-3">
+                    <li class="custom-menu-item px-3 py-2 pointer">
+                        <a class="text-decoration-none text-white">Cadastro de funcionários da imobiliário</a>
+                    </li>
+                    <li class="custom-menu-item px-3 py-2 pointer">
+                        <a class="text-decoration-none text-white">Cadastro de clientes (proprietários dos imóveis)</a>
+                    </li>
+                    <li class="custom-menu-item px-3 py-2 pointer">
+                        <a class="text-decoration-none text-white">Cadastro de imóveis</a>
+                    </li>
+                    <li class="custom-menu-item px-3 py-2 pointer">
+                        <a class="text-decoration-none text-white">Listagem dos funcionários cadastrados</a>
+                    </li>
+                    <li class="custom-menu-item px-3 py-2 pointer">
+                        <a class="text-decoration-none text-white">Listagem dos clientes cadastrados</a>
+                    </li>
+                    <li class="custom-menu-item px-3 py-2 pointer">
+                        <a class="text-decoration-none text-white">Listagem dos imóveis cadastrados</a>
+                    </li>
+                    <li class="custom-menu-item px-3 py-2 pointer">
+                        <a class="text-decoration-none text-white">Listagem dos interesses dos usuários nos imóveis</a>
+                    </li>
+                    <li class="custom-menu-item px-3 py-2 pointer">
+                        <a class="text-decoration-none text-white">Sair</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <section class="mt-5 pt-3">
+            <h2 class="text-center">Cadastro de Funcionários</h2>
+            <div class="my-4">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-12 col-md-4">
+                            <label for="inputEmail4">Nome</label>
+                            <input type="text" class="form-control" id="inputEmail4" placeholder="Joaquim da Silva">
+                        </div>
+                        <div class="form-group col-12 col-md-4">
+                            <label for="inputPassword4">CPF</label>
+                            <input type="text" class="form-control" id="inputPassword4" placeholder="123.456.789-00">
+                        </div>
+                        <div class="form-group col-12 col-md-4">
+                            <label for="exampleFormControlSelect1">Cargo</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Gerente</option>
+                                <option>Pedreiro</option>
+                                <option>Vendedor</option>
+                                <option>Youtuber</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-12 col-md-3">
+                            <label for="inputEmail4">Telefone Contato</label>
+                            <input type="text" class="form-control" id="inputEmail4" placeholder="(69) 4002-8922">
+                        </div>
+                        <div class="form-group col-12 col-md-3">
+                            <label for="inputPassword4">Telefone Celular</label>
+                            <input type="text" class="form-control" id="inputPassword4" placeholder="(34) 99174-0220">
+                        </div>
+                        <div class="form-group col-12 col-md-3">
+                            <label for="inputPassword4">Data de admissão</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-calendar"></i>
+                                    </span>
+                                </div>
+                                <input type="date" class="form-control" placeholder="10/10/1990">
+                            </div>
+                        </div>
+                        <div class="form-group col-12 col-md-3">
+                            <label for="inputPassword4">Salário</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">R$</span>
+                                </div>
+                                <input type="number" class="form-control" placeholder="500">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">,00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress">Endereço</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="Rua dos Bobos, nº 0">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputCity">Cidade</label>
+                            <input type="text" class="form-control" id="inputCity" placeholder="Uberlândia">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputEstado">Estado</label>
+                            <select id="inputEstado" class="form-control">
+                                <option selected>Selecione seu estado</option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="inputCEP">CEP</label>
+                            <input type="text" class="form-control" id="inputCEP" placeholder="39.408-724">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputCity">Usuário</label>
+                            <input type="text" class="form-control" id="inputCity" placeholder="joaquim123">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputCity">Senha</label>
+                            <input type="password" class="form-control" id="inputCity" placeholder="********">
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                        <button type="reset" class="btn btn-secondary">Limpar</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section class="mt-5 pt-3">
+            <h2 class="text-center">Cadastro de Clientes</h2>
+            <div class="my-4">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-12 col-md-4">
+                            <label for="inputEmail4">Nome</label>
+                            <input type="text" class="form-control" id="inputEmail4" placeholder="Joaquim da Silva">
+                        </div>
+                        <div class="form-group col-12 col-md-4">
+                            <label for="inputPassword4">CPF</label>
+                            <input type="text" class="form-control" id="inputPassword4" placeholder="123.456.789-00">
+                        </div>
+                        <div class="form-group col-12 col-md-4">
+                            <label for="exampleFormControlSelect1">Sexo</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Masculino</option>
+                                <option>Feminino</option>
+                                <option>Outro</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword4">Endereço de Email</label>
+                        <input type="email" class="form-control" id="inputPassword4" placeholder="joaquim@email.com">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-12 col-md-3">
+                            <label for="inputEmail4">Telefone Contato</label>
+                            <input type="text" class="form-control" id="inputEmail4" placeholder="(69) 4002-8922">
+                        </div>
+                        <div class="form-group col-12 col-md-3">
+                            <label for="inputPassword4">Telefone Celular</label>
+                            <input type="text" class="form-control" id="inputPassword4" placeholder="(34) 99174-0220">
+                        </div>
+                        <div class="form-group col-12 col-md-3">
+                            <label for="exampleFormControlSelect1">Estado Civil</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Solteiro</option>
+                                <option>Namorando</option>
+                                <option>Casado</option>
+                                <option>Divorciado</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-12 col-md-3">
+                            <label for="inputEmail4">Profissão</label>
+                            <input type="text" class="form-control" id="inputEmail4" placeholder="Engenheiro">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress">Endereço</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="Rua dos Bobos, nº 0">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputCity">Cidade</label>
+                            <input type="text" class="form-control" id="inputCity" placeholder="Uberlândia">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputEstado">Estado</label>
+                            <select id="inputEstado" class="form-control">
+                                <option selected>Selecione seu estado</option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="inputCEP">CEP</label>
+                            <input type="text" class="form-control" id="inputCEP" placeholder="39.408-724">
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                        <button type="reset" class="btn btn-secondary">Limpar</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section class="mt-5 pt-3">
+            <h2 class="text-center">Cadastro de Imóveis</h2>
+            <div class="my-4">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-12 col-md-4">
+                            <label for="inputEmail4">Nome</label>
+                            <input type="text" class="form-control" id="inputEmail4" placeholder="Joaquim da Silva">
+                        </div>
+                        <div class="form-group col-12 col-md-4">
+                            <label for="inputPassword4">CPF</label>
+                            <input type="text" class="form-control" id="inputPassword4" placeholder="123.456.789-00">
+                        </div>
+                        <div class="form-group col-12 col-md-4">
+                            <label for="exampleFormControlSelect1">Cargo</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Gerente</option>
+                                <option>Pedreiro</option>
+                                <option>Vendedor</option>
+                                <option>Youtuber</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-12 col-md-3">
+                            <label for="inputEmail4">Telefone Contato</label>
+                            <input type="text" class="form-control" id="inputEmail4" placeholder="(69) 4002-8922">
+                        </div>
+                        <div class="form-group col-12 col-md-3">
+                            <label for="inputPassword4">Telefone Celular</label>
+                            <input type="text" class="form-control" id="inputPassword4" placeholder="(34) 99174-0220">
+                        </div>
+                        <div class="form-group col-12 col-md-3">
+                            <label for="inputPassword4">Data de admissão</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-calendar"></i>
+                                    </span>
+                                </div>
+                                <input type="date" class="form-control" placeholder="10/10/1990">
+                            </div>
+                        </div>
+                        <div class="form-group col-12 col-md-3">
+                            <label for="inputPassword4">Salário</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">R$</span>
+                                </div>
+                                <input type="number" class="form-control" placeholder="500">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">,00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress">Endereço</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="Rua dos Bobos, nº 0">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputCity">Cidade</label>
+                            <input type="text" class="form-control" id="inputCity" placeholder="Uberlândia">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputEstado">Estado</label>
+                            <select id="inputEstado" class="form-control">
+                                <option selected>Selecione seu estado</option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="inputCEP">CEP</label>
+                            <input type="text" class="form-control" id="inputCEP" placeholder="39.408-724">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputCity">Usuário</label>
+                            <input type="text" class="form-control" id="inputCity" placeholder="joaquim123">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputCity">Senha</label>
+                            <input type="password" class="form-control" id="inputCity" placeholder="********">
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                        <button type="reset" class="btn btn-secondary">Limpar</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+    <footer class="page-footer font-small bg-secondary text-white pt-4">
+        <div class="container">
+            <ul class="list-unstyled list-inline text-center">
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-fb mx-1">
+                        <i class="fab fa-facebook-f"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-tw mx-1">
+                        <i class="fab fa-twitter"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-gplus mx-1">
+                        <i class="fab fa-google-plus-g"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-li mx-1">
+                        <i class="fab fa-linkedin-in"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-instagram mx-1">
+                        <i class="fab fa-instagram"> </i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-info py-3 d-flex align-items-center justify-content-center">
+            © 2019
+            <a class="text-decoration-none ml-2" href="http://www.ufu.br/">UFU-MG</a>
+        </div>
+    </footer>
+    <script src="assets/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+</body>
+
+</html>
