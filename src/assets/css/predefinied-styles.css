@@ -1,5 +1,6 @@
 :root {
     --primary: rgb(0, 149, 149);
+    --primary-dark: rgb(0, 102, 102);
     --primary-alt: rgb(0, 190, 190);
     --secondary: #343a40;
 }
@@ -22,6 +23,7 @@
 }
 
 .btn-primary {
+    color: white !important;
     background-color: var(--primary);
     border-color: var(--primary);
 }
@@ -29,6 +31,33 @@
 .btn-primary:hover {
     background-color: var(--primary-alt);
     border-color: var(--primary-alt);
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+a {
+    color: var(--primary);
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color: var(--primary);
+}
+
+.page-link {
+    color: var(--primary);
+}
+
+.page-item.active .page-link {
+    background-color: var(--primary);
+    border-color: var(--primary);
 }
 
 .btn-floating {
