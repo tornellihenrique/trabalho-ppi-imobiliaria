@@ -173,6 +173,7 @@ body {
 .custom-card:hover .icon i {
     background: linear-gradient(90deg, var(--primary), var(--primary-alt));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     opacity: 1;
     transition: all 0.3s ease;
