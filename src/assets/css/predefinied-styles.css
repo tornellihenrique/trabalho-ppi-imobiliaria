@@ -47,6 +47,11 @@ a:hover {
     color: var(--primary-dark);
 }
 
+.custom-control-input:checked~.custom-control-label::before {
+    border-color: var(--primary);
+    background-color: var(--primary);
+}
+
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
     background-color: var(--primary);
 }
