@@ -247,3 +247,17 @@
 .modal-img {
     height: 600px;
 }
+
+.form-control-heigth {
+    height: 38px;
+}
+
+.cut-text {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.custom-file-label::after {
+    content: "Pesquisar";
+}

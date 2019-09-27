@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Sweet Home Alabama</title>
+    <title>Sweet Home - Administração</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
 
@@ -59,53 +59,57 @@
         <section class="mt-5 pt-3">
             <h2 class="text-center">Cadastro de Funcionários</h2>
             <div class="my-4">
-                <form>
+                <form name="formFunc">
                     <div class="form-row">
                         <div class="form-group col-12 col-md-4">
-                            <label for="inputEmail4">Nome</label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="Joaquim da Silva">
+                            <label for="nome">Nome</label>
+                            <input type="text" class="form-control" id="nome" name="nome"
+                                placeholder="Joaquim da Silva">
                         </div>
                         <div class="form-group col-12 col-md-4">
-                            <label for="inputPassword4">CPF</label>
-                            <input type="text" class="form-control" id="inputPassword4" placeholder="123.456.789-00">
+                            <label for="cpf">CPF</label>
+                            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="123.456.789-00">
                         </div>
                         <div class="form-group col-12 col-md-4">
-                            <label for="exampleFormControlSelect1">Cargo</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>Gerente</option>
-                                <option>Pedreiro</option>
-                                <option>Vendedor</option>
-                                <option>Youtuber</option>
+                            <label for="cargo">Cargo</label>
+                            <select class="form-control" id="cargo">
+                                <option value="gerente">Gerente</option>
+                                <option value="pedreiro">Pedreiro</option>
+                                <option value="vendedor">Vendedor</option>
+                                <option value="youtuber">Youtuber</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-12 col-md-3">
-                            <label for="inputEmail4">Telefone Contato</label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="(69) 4002-8922">
+                            <label for="telcon">Telefone Contato</label>
+                            <input type="text" class="form-control" id="telcon" name="telcon"
+                                placeholder="(69) 4002-8922">
                         </div>
                         <div class="form-group col-12 col-md-3">
-                            <label for="inputPassword4">Telefone Celular</label>
-                            <input type="text" class="form-control" id="inputPassword4" placeholder="(34) 99174-0220">
+                            <label for="telcel">Telefone Celular</label>
+                            <input type="text" class="form-control" id="tecel" name="tecel"
+                                placeholder="(34) 99174-0220">
                         </div>
                         <div class="form-group col-12 col-md-3">
-                            <label for="inputPassword4">Data de admissão</label>
+                            <label for="dataadm">Data de admissão</label>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
                                         <i class="fas fa-calendar"></i>
                                     </span>
                                 </div>
-                                <input type="date" class="form-control" placeholder="10/10/1990">
+                                <input type="date" class="form-control" name="dataadm" id="dataadm"
+                                    placeholder="10/10/1990">
                             </div>
                         </div>
                         <div class="form-group col-12 col-md-3">
-                            <label for="inputPassword4">Salário</label>
+                            <label for="salario">Salário</label>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">R$</span>
                                 </div>
-                                <input type="number" class="form-control" placeholder="500">
+                                <input type="number" name="salario" id="salario" class="form-control" placeholder="500">
                                 <div class="input-group-append">
                                     <span class="input-group-text">,00</span>
                                 </div>
@@ -113,34 +117,36 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputAddress">Endereço</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="Rua dos Bobos, nº 0">
+                        <label for="endereco">Endereço</label>
+                        <input type="text" class="form-control" name="endereco" id="endereco"
+                            placeholder="Rua dos Bobos, nº 0">
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="inputCity">Cidade</label>
-                            <input type="text" class="form-control" id="inputCity" placeholder="Uberlândia">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" class="form-control" name="cidade" id="cidade" placeholder="Uberlândia">
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="inputEstado">Estado</label>
-                            <select id="inputEstado" class="form-control">
+                            <label for="estado">Estado</label>
+                            <select id="estado" name="estado" class="form-control">
                                 <option selected>Selecione seu estado</option>
-                                <option>...</option>
+                                <option value="...">...</option>
                             </select>
                         </div>
                         <div class="form-group col-md-2">
-                            <label for="inputCEP">CEP</label>
-                            <input type="text" class="form-control" id="inputCEP" placeholder="39.408-724">
+                            <label for="cep">CEP</label>
+                            <input type="text" class="form-control" id="cep" name="cep" placeholder="39.408-724">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="inputCity">Usuário</label>
-                            <input type="text" class="form-control" id="inputCity" placeholder="joaquim123">
+                            <label for="usuario">Usuário</label>
+                            <input type="text" class="form-control" id="usuario" name="usuario"
+                                placeholder="joaquim123">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="inputCity">Senha</label>
-                            <input type="password" class="form-control" id="inputCity" placeholder="********">
+                            <label for="senha">Senha</label>
+                            <input type="password" class="form-control" id="senha" name="senha" placeholder="********">
                         </div>
                     </div>
                     <div class="d-flex justify-content-between">
@@ -153,71 +159,77 @@
         <section class="mt-5 pt-3">
             <h2 class="text-center">Cadastro de Clientes</h2>
             <div class="my-4">
-                <form>
+                <form name="formClientes">
                     <div class="form-row">
                         <div class="form-group col-12 col-md-4">
-                            <label for="inputEmail4">Nome</label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="Joaquim da Silva">
+                            <label for="nome">Nome</label>
+                            <input type="text" class="form-control" id="nome" name="nome"
+                                placeholder="Joaquim da Silva">
                         </div>
                         <div class="form-group col-12 col-md-4">
-                            <label for="inputPassword4">CPF</label>
-                            <input type="text" class="form-control" id="inputPassword4" placeholder="123.456.789-00">
+                            <label for="cpf">CPF</label>
+                            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="123.456.789-00">
                         </div>
                         <div class="form-group col-12 col-md-4">
-                            <label for="exampleFormControlSelect1">Sexo</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>Masculino</option>
-                                <option>Feminino</option>
-                                <option>Outro</option>
+                            <label for="sexo">Sexo</label>
+                            <select class="form-control" id="sexo">
+                                <option name="masculino">Masculino</option>
+                                <option name="feminino">Feminino</option>
+                                <option name="outro">Outro</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputPassword4">Endereço de Email</label>
-                        <input type="email" class="form-control" id="inputPassword4" placeholder="joaquim@email.com">
+                        <label for="email">Endereço de Email</label>
+                        <input type="email" class="form-control" id="email" name="email"
+                            placeholder="joaquim@email.com">
                     </div>
                     <div class="form-row">
                         <div class="form-group col-12 col-md-3">
-                            <label for="inputEmail4">Telefone Contato</label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="(69) 4002-8922">
+                            <label for="telcon">Telefone Contato</label>
+                            <input type="text" class="form-control" id="telcon" name="telcon"
+                                placeholder="(69) 4002-8922">
                         </div>
                         <div class="form-group col-12 col-md-3">
-                            <label for="inputPassword4">Telefone Celular</label>
-                            <input type="text" class="form-control" id="inputPassword4" placeholder="(34) 99174-0220">
+                            <label for="telcel">Telefone Celular</label>
+                            <input type="text" class="form-control" id="telcel" name="telcel"
+                                placeholder="(34) 99174-0220">
                         </div>
                         <div class="form-group col-12 col-md-3">
-                            <label for="exampleFormControlSelect1">Estado Civil</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>Solteiro</option>
-                                <option>Namorando</option>
-                                <option>Casado</option>
-                                <option>Divorciado</option>
+                            <label for="estcivil">Estado Civil</label>
+                            <select class="form-control" id="estcivil">
+                                <option value="solteiro">Solteiro</option>
+                                <option value="namorando">Namorando</option>
+                                <option value="casado">Casado</option>
+                                <option value="divorciado">Divorciado</option>
                             </select>
                         </div>
                         <div class="form-group col-12 col-md-3">
-                            <label for="inputEmail4">Profissão</label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="Engenheiro">
+                            <label for="profissao">Profissão</label>
+                            <input type="text" class="form-control" id="profissao" name="profissao"
+                                placeholder="Engenheiro">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputAddress">Endereço</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="Rua dos Bobos, nº 0">
+                        <label for="endereco">Endereço</label>
+                        <input type="text" class="form-control" id="endereco" name="endereco"
+                            placeholder="Rua dos Bobos, nº 0">
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="inputCity">Cidade</label>
-                            <input type="text" class="form-control" id="inputCity" placeholder="Uberlândia">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Uberlândia">
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="inputEstado">Estado</label>
-                            <select id="inputEstado" class="form-control">
+                            <label for="estado">Estado</label>
+                            <select id="estado" name="estado" class="form-control">
                                 <option selected>Selecione seu estado</option>
                                 <option>...</option>
                             </select>
                         </div>
                         <div class="form-group col-md-2">
-                            <label for="inputCEP">CEP</label>
-                            <input type="text" class="form-control" id="inputCEP" placeholder="39.408-724">
+                            <label for="cep">CEP</label>
+                            <input type="text" class="form-control" id="cep" name="cep" placeholder="39.408-724">
                         </div>
                     </div>
                     <div class="d-flex justify-content-between">
@@ -230,88 +242,230 @@
         <section class="mt-5 pt-3">
             <h2 class="text-center">Cadastro de Imóveis</h2>
             <div class="my-4">
-                <form>
+                <form name="formImoveis">
                     <div class="form-row">
-                        <div class="form-group col-12 col-md-4">
-                            <label for="inputEmail4">Nome</label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="Joaquim da Silva">
+                        <div class="form-group col-12 col-md-6">
+                            <label for="endereco">Endereço</label>
+                            <input type="text" class="form-control" id="endereco" name="endereco"
+                                placeholder="Endereço do imóvel">
                         </div>
-                        <div class="form-group col-12 col-md-4">
-                            <label for="inputPassword4">CPF</label>
-                            <input type="text" class="form-control" id="inputPassword4" placeholder="123.456.789-00">
-                        </div>
-                        <div class="form-group col-12 col-md-4">
-                            <label for="exampleFormControlSelect1">Cargo</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>Gerente</option>
-                                <option>Pedreiro</option>
-                                <option>Vendedor</option>
-                                <option>Youtuber</option>
+                        <div class="form-group col-12 col-md-6">
+                            <label for="bairro">Bairro</label>
+                            <select id="bairro" name="bairro" class="form-control">
+                                <option selected disabled>Selecione o bairro</option>
+                                <option value="santamonica">Santa Mônica</option>
+                                <option value="martins">Martins</option>
+                                <option value="santaluzia">Santa Luzia</option>
+                                <option value="pequis">Pequis</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-12 col-md-3">
-                            <label for="inputEmail4">Telefone Contato</label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="(69) 4002-8922">
-                        </div>
-                        <div class="form-group col-12 col-md-3">
-                            <label for="inputPassword4">Telefone Celular</label>
-                            <input type="text" class="form-control" id="inputPassword4" placeholder="(34) 99174-0220">
-                        </div>
-                        <div class="form-group col-12 col-md-3">
-                            <label for="inputPassword4">Data de admissão</label>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-calendar"></i>
-                                    </span>
+                        <div class="form-group col-12 col-md-6">
+                            <label>Categoria</label>
+                            <div class="d-flex align-items-center form-control-heigth">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="categoria" id="aquisicao"
+                                        value="aquisicao">
+                                    <label class="form-check-label" for="aquisicao">Aquisição</label>
                                 </div>
-                                <input type="date" class="form-control" placeholder="10/10/1990">
-                            </div>
-                        </div>
-                        <div class="form-group col-12 col-md-3">
-                            <label for="inputPassword4">Salário</label>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">R$</span>
-                                </div>
-                                <input type="number" class="form-control" placeholder="500">
-                                <div class="input-group-append">
-                                    <span class="input-group-text">,00</span>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="categoria" id="locacao"
+                                        value="locacao">
+                                    <label class="form-check-label" for="locacao">Locação</label>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputAddress">Endereço</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="Rua dos Bobos, nº 0">
+                        <div class="form-group col-12 col-md-6  ">
+                            <label>Disponibilidade</label>
+                            <div class="d-flex align-items-center form-control-heigth">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="disponivel" id="disponivel"
+                                        value="1">
+                                    <label class="form-check-label" for="disponivel">Disponível</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="disponivel" id="ocupado"
+                                        value="0">
+                                    <label class="form-check-label" for="ocupado">Ocupado</label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputCity">Cidade</label>
-                            <input type="text" class="form-control" id="inputCity" placeholder="Uberlândia">
+                        <div class="form-group col-12 col-md-6">
+                            <label for="fotosimovel">Fotos do imóvel</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" name="fotosimovel" id="fotosimovel"
+                                    multiple />
+                                <label class="custom-file-label cut-text" for="fotosimovel">Selecione as fotos</label>
+                            </div>
                         </div>
-                        <div class="form-group col-md-4">
-                            <label for="inputEstado">Estado</label>
-                            <select id="inputEstado" class="form-control">
-                                <option selected>Selecione seu estado</option>
-                                <option>...</option>
+                        <div class="form-group col-12 col-md-6">
+                            <label for="tipoImovel">Tipo</label>
+                            <select id="tipoImovel" name="tipoImovel" class="form-control">
+                                <option selected disabled>Selecione o tipo de imóvel</option>
+                                <option value="casa">Casa</option>
+                                <option value="apartamento">Apartamento</option>
+                                <option value="salacomercial">Sala comercial</option>
+                                <option value="terreno">Terreno</option>
                             </select>
                         </div>
-                        <div class="form-group col-md-2">
-                            <label for="inputCEP">CEP</label>
-                            <input type="text" class="form-control" id="inputCEP" placeholder="39.408-724">
+                    </div>
+                    <div id="infoImoveisDin1" class="d-none">
+                        <div class="form-row">
+                            <div class="form-group col-6 col-md-3">
+                                <label for="qtdquartos">Quantidade de quartos</label>
+                                <input type="number" class="form-control" name="qtdquartos" id="qtdquartos" min="0"
+                                    max="20">
+                            </div>
+                            <div class="form-group col-6 col-md-3">
+                                <label for="qtdsuites">Quantidade de suítes</label>
+                                <input type="number" class="form-control" name="qtdsuites" id="qtdsuites" min="0"
+                                    max="20">
+                            </div>
+                            <div class="form-group col-6 col-md-3">
+                                <label for="qtdsalaestar">Quantidade de salas de estar</label>
+                                <input type="number" class="form-control" name="qtdsalaestar" id="qtdsalaestar" min="0"
+                                    max="20">
+                            </div>
+                            <div class="form-group col-6 col-md-3">
+                                <label for="qtdsalajantar">Quantidade de salas de jantar</label>
+                                <input type="number" class="form-control" name="qtdsalajantar" id="qtdsalajantar"
+                                    min="0" max="20">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-12 col-md-4">
+                                <label for="vagasgaragem">Vagas na garagem</label>
+                                <input type="number" class="form-control" name="vagasgaragem" id="vagasgaragem" min="0"
+                                    max="20">
+                            </div>
+                            <div class="form-group col-12 col-md-4">
+                                <label for="area">Área</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" name="area" id="area" min="0">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="m2">m²</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-12 col-md-4">
+                                <label>Armario embutido</label>
+                                <div class="d-flex align-items-center justify-content-between form-control-heigth">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="armarioemb"
+                                            id="armarioembSim" value="1">
+                                        <label class="form-check-label" for="armarioembSim">Sim</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="armarioemb"
+                                            id="armarioembNao" value="0">
+                                        <label class="form-check-label" for="armarioembNão">Não</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="descricao">Descrição</label>
+                            <textarea class="form-control" id="descricao" name="descricao" cols="4"></textarea>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputCity">Usuário</label>
-                            <input type="text" class="form-control" id="inputCity" placeholder="joaquim123">
+                    <div id="infoImoveisDin2" class="d-none">
+                        <div class="form-row">
+                            <div class="form-group col-12 col-md-4">
+                                <label for="andar">Andar</label>
+                                <input type="number" class="form-control" name="andar" id="andar" min="0">
+                            </div>
+                            <div class="form-group col-12 col-md-4">
+                                <label for="valorcond">Valor condomínio</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="currency">R$</span>
+                                    </div>
+                                    <input type="number" class="form-control" id="valorcond" min="0" max="200000"
+                                        value="0" name="valorcond">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="cents">,00</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-12 col-md-4">
+                                <label>Portaria 20 horas</label>
+                                <div class="d-flex align-items-center justify-content-between form-control-heigth">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="portaria24hrs"
+                                            id="portaria24hrsSim" value="1">
+                                        <label class="form-check-label" for="portaria24hrsSim">Sim</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="portaria24hrs"
+                                            id="portaria24hrsNao" value="0">
+                                        <label class="form-check-label" for="portaria24hrsNao">Não</label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputCity">Senha</label>
-                            <input type="password" class="form-control" id="inputCity" placeholder="********">
+                    </div>
+                    <div id="infoImoveisDin3" class="d-none">
+                        <div class="form-row">
+                            <div class="form-group col-12 col-md-4">
+                                <label for="area">Área</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" name="area" id="area" min="0">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="m2">m²</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-6 col-md-4">
+                                <label for="qtdbanheiros">Quantidade de banheiros</label>
+                                <input type="number" class="form-control" name="qtdbanheiros" id="qtdbanheiros" min="0"
+                                    max="20">
+                            </div>
+                            <div class="form-group col-6 col-md-4">
+                                <label for="qtdcomodos">Quantidade de cômodos</label>
+                                <input type="number" class="form-control" name="qtdcomodos" id="qtdcomodos" min="0"
+                                    max="20">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="infoImoveisDin4" class="d-none">
+                        <div class="form-row">
+                            <div class="form-group col-12 col-md-4">
+                                <label for="largura">Largura</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" name="largura" id="largura" min="0">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="m2">m²</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-12 col-md-4">
+                                <label for="comprimento">Comprimento</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" name="comprimento" id="comprimento"
+                                        min="0">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="m2">m²</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-12 col-md-4">
+                                <label for="aclive">Possui aclive/declive</label>
+                                <div class="d-flex align-items-center justify-content-between form-control-heigth">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="aclive" id="acliveSim"
+                                            value="1">
+                                        <label class="form-check-label" for="acliveSim">Sim</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="aclive" id="acliveNao"
+                                            value="0">
+                                        <label class="form-check-label" for="acliveNao">Não</label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between">
@@ -319,6 +473,87 @@
                         <button type="reset" class="btn btn-secondary">Limpar</button>
                     </div>
                 </form>
+        </section>
+        <section class="mt-5 pt-3">
+            <h2 class="text-center">Funcionários</h2>
+            <div class="my-4">
+                <table class="table table-striped table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Usuário</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">CPF</th>
+                            <th scope="col">Endereço</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">jaoqs</th>
+                            <td>Joaquim da Silva</td>
+                            <td>123.456.789-10</td>
+                            <td>Rua dos Bobos, nº 0</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">dalbelo</th>
+                            <td>Gabriel Dal Belo Gomes Santos</td>
+                            <td>123.456.789-10</td>
+                            <td>Av Paulo Brificado, nº 100</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ricks</th>
+                            <td>Henrique Tornelli Duarte</td>
+                            <td>123.456.789-10</td>
+                            <td>Rua Miguel Rocha do Santos, nº 377</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">jaovitu</th>
+                            <td>João Vitor Santos Izidoro</td>
+                            <td>123.456.789-10</td>
+                            <td>Rua Arrom Bakú, nº 12</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="mt-5 pt-3">
+            <h2 class="text-center">Clientes</h2>
+            <div class="my-4">
+                <table class="table table-striped table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">CPF</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Endereço</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Joaquim da Silva</th>
+                            <td>123.456.789-10</td>
+                            <td>joaquim@email.com</td>
+                            <td>Rua dos Bobos, nº 0</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Gabriel Dal Belo Gomes Santos</th>
+                            <td>123.456.789-10</td>
+                            <td>daljonson@email.com</td>
+                            <td>Av Paulo Brificado, nº 100</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Henrique Tornelli Duarte</th>
+                            <td>123.456.789-10</td>
+                            <td>henrique.tornelli@email.com</td>
+                            <td>Rua Miguel Rocha do Santos, nº 377</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">João Vitor Santos Izidoro</th>
+                            <td>123.456.789-10</td>
+                            <td>jaovitu@email.com</td>
+                            <td>Rua Arrom Bakú, nº 12</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
     </div>
@@ -357,9 +592,72 @@
             <a class="text-decoration-none ml-2" href="http://www.ufu.br/">UFU-MG</a>
         </div>
     </footer>
-    <script src="assets/js/jquery-3.3.1.slim.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+</body>
+<script src="assets/js/jquery-3.3.1.slim.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script>
+    $('#fotosimovel').change(function (e) {
+        var files = [];
+        for (var i = 0; i < $(this)[0].files.length; i++) {
+            files.push($(this)[0].files[i].name);
+        }
+        $(this).next('.custom-file-label').html(files.join(', '));
+    });
+
+    function show(id) {
+        $(`#${id}`).removeClass('d-none');
+        $(`#${id}`).removeClass('d-block');
+        $(`#${id}`).addClass('d-block');
+    }
+
+    function hide(id) {
+        $(`#${id}`).removeClass('d-none');
+        $(`#${id}`).removeClass('d-block');
+        $(`#${id}`).addClass('d-none');
+    }
+
+    $('#tipoImovel').change(function (e) {
+        var tipoImovel = $('#tipoImovel').val();
+
+        switch (tipoImovel) {
+            case 'casa': {
+                show('infoImoveisDin1');
+                hide('infoImoveisDin2');
+                hide('infoImoveisDin3');
+                hide('infoImoveisDin4');
+                break;
+            }
+            case 'apartamento': {
+                show('infoImoveisDin1');
+                show('infoImoveisDin2');
+                hide('infoImoveisDin3');
+                hide('infoImoveisDin4');
+                break;
+            }
+            case 'salacomercial': {
+                hide('infoImoveisDin1');
+                hide('infoImoveisDin2');
+                show('infoImoveisDin3');
+                hide('infoImoveisDin4');
+                break;
+            }
+            case 'terreno': {
+                hide('infoImoveisDin1');
+                hide('infoImoveisDin2');
+                hide('infoImoveisDin3');
+                show('infoImoveisDin4');
+                break;
+            }
+            default: {
+                hide('infoImoveisDin1');
+                hide('infoImoveisDin2');
+                hide('infoImoveisDin3');
+                hide('infoImoveisDin4');
+            }
+        }
+    });
+</script>
 </body>
 
 </html>

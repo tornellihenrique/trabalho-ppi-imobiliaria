@@ -83,3 +83,7 @@ a:hover {
 .btn-floating i {
     margin-top: 14px;
 }
+
+/* .custom-file-label::after {
+    content: "Fotos";
+} */
