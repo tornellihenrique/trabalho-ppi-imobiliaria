@@ -57,7 +57,7 @@
     color: white;
 }
 
-.custom-menu-item:hover {
+.custom-menu-item:hover, .custom-menu-item-active {
     background-color: var(--primary)
 }
 

@@ -7,4 +7,18 @@ Route::set('index.php', function() {
     Footer::CreateView('Footer');
 });
 
+Route::set('search', function() {
+    Header::CreateView('Header');
+    Navbar::CreateView('Navbar');
+    Search::CreateView('Search');
+    Footer::CreateView('Footer');
+});
+
+Route::set('contact', function() {
+    Header::CreateView('Header');
+    Navbar::CreateView('Navbar');
+    Contact::CreateView('Contact');
+    Footer::CreateView('Footer');
+});
+
 ?>

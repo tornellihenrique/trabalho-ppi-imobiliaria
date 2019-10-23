@@ -2,8 +2,6 @@
 
 class Route {
 
-    public static $validRoutes = array();
-
     private static function registerRoute($route) {
         global $Routes;
         $Routes[] = $route;
@@ -11,8 +9,6 @@ class Route {
 
     public static function set($route, $function) {
         self::registerRoute($route);
-
-        // print_r(self::$validRoutes);
 
         if ($_GET['url'] == $route) {
             $function->__invoke();

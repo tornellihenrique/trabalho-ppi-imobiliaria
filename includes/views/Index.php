@@ -5,10 +5,12 @@
             <span class="text-regular">O melhor website para seu imóvel</span>
         </h3>
         <div class="d-flex justify-content-center mt-4">
-            <div class="searchbar">
-              <input class="search_input" type="text" name="" placeholder="Pesquisar imóvel">
-              <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-            </div>
+            <form action="<?=BASEDIR?>search" method="get">
+                <div class="searchbar">
+                    <input class="search_input" type="text" name="tags" placeholder="Pesquisar imóvel" autocomplete="off">
+                    <button type="submit" class="search_icon btn"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
         </div>
     </div>
 </header>
