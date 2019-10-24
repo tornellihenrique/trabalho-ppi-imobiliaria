@@ -1,4 +1,3 @@
-
 create table cargo (
 	id_cargo			int(2)			primary key auto_increment,
 	descricao			varchar(100)

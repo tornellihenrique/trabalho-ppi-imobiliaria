@@ -14,11 +14,11 @@ class Database {
     }
 
     public static function query($query, $params = array()) {
-        $statement = self::connect()->prepare($query);
-        $statement->execute($params);
+        $stmt = self::connect()->prepare($query);
+        $stmt->execute($params);
 
         if (explode(' ', $query)[0] == 'SELECT') {
-            $data = $statement->fetchAll();
+            $data = $stmt->fetchAll();
             return $data;
         }
     }
