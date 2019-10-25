@@ -1,15 +1,17 @@
 <?php
 
-    require_once( './includes/_Globals.php' );
+session_start();
 
-    require_once( './includes/routes/Routes.php' );
+require_once( './includes/_Globals.php' );
 
-    function __autoload($class_name) {
-        if (file_exists('./includes/classes/' . $class_name . '.php')) {
-            require_once './includes/classes/' . $class_name . '.php';
-        } else if (file_exists('./includes/controllers/' . $class_name . '.php')) {
-            require_once './includes/controllers/' . $class_name . '.php';
-        }
+require_once( './includes/routes/Routes.php' );
+
+function __autoload($class_name) {
+    if (file_exists('./includes/classes/' . $class_name . '.php')) {
+        require_once './includes/classes/' . $class_name . '.php';
+    } else if (file_exists('./includes/controllers/' . $class_name . '.php')) {
+        require_once './includes/controllers/' . $class_name . '.php';
     }
+}
 
 ?>

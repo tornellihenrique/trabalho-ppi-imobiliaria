@@ -7,7 +7,8 @@
         <div class="d-flex justify-content-center mt-4">
             <form action="<?=BASEDIR?>search" method="get">
                 <div class="searchbar">
-                    <input class="search_input" type="text" name="tags" placeholder="Pesquisar imóvel" autocomplete="off">
+                    <input class="search_input" type="text" name="tags" placeholder="Pesquisar imóvel"
+                        autocomplete="off">
                     <button type="submit" class="search_icon btn"><i class="fas fa-search"></i></button>
                 </div>
             </form>
