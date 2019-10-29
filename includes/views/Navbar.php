@@ -9,6 +9,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
+if (isset($_GET['logout'])) {
+    Login::logout();
+}
+
 ?>
 <div class="pos-f-t">
     <nav class="navbar navbar-dark fixed-top bg-transparent">
@@ -50,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <a class="text-decoration-none text-white d-block px-3 py-2" href="<?=BASEDIR?>contact">Contato</a>
                 </li>
                 <?php
-                    if (!Login::isLoggedIn()) {
+                    if (Login::isLoggedIn()) {
                         echo '
                         <li class="custom-menu-item pointer" onclick="logout()">
                             <a class="text-decoration-none text-white d-block px-3 py-2">Logout</a>
@@ -137,7 +141,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php
 
 if (!Login::isLoggedIn()) {
-    echo '
+    echo <<<HTML
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -150,7 +154,7 @@ if (!Login::isLoggedIn()) {
                 <div class="modal-body">
                     <form action="" method="POST">
                         <div class="form-group">
-                            <label for="username">Endereço de Email</label>
+                            <label for="username">Usuário</label>
                             <input type="text" class="form-control" id="username" name="username" placeholder="joaquim" required>
                         </div>
                         <div class="form-group">
@@ -166,7 +170,7 @@ if (!Login::isLoggedIn()) {
             </div>
         </div>
     </div>
-    ';
+    HTML;
 }
 
 ?>
@@ -177,7 +181,7 @@ if (!Login::isLoggedIn()) {
     }
 
     function logout() {
-        
+        document.location.href = '?logout';
     }
 
     function goToAdm() {
