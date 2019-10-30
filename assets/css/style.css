@@ -302,3 +302,9 @@
     border-radius: 50%;
     color: white;
 }
+
+.footer-fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+}

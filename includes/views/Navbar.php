@@ -4,9 +4,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['username']) && isset($_POST['password'])) {
         $username = $_POST['username'];
         $password = $_POST['password'];
-    
-        Login::loginUser($username, $password);
+
+        if (Login::loginUser($username, $password)) {
+            $url = BASEDIR . 'admin';
+
+            echo "
+            <script>
+                $(document).ready(function(){
+                    window.open('$url', '_blank')
+                })
+            </script>
+            ";
+        }
     }
+}
+
+if (isset($_GET['logout'])) {
+    Login::logout();
+
+    $url = BASEDIR;
+    header("Location: $url");
 }
 
 ?>
@@ -18,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php
         if ($_GET['url'] == 'search') {
             echo <<<HTML
-            <button class="searchbar-toggler bg-dark" type="button" data-toggle="collapse"
+                <button class="searchbar-toggler bg-dark" type="button" data-toggle="collapse"
                     data-target="#searchbarToggleExternalContent" aria-controls="searchbarToggleExternalContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fas fa-search align-middle text-white"></i>
@@ -32,39 +49,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h6 class="text-white h4 pl-4">Menu</h6>
             <ul class="custom-menu mt-3">
                 <?php
-                    if (!Login::isLoggedIn()) {
-                        echo '
-                        <li class="custom-menu-item pointer" onclick="openLoginModal()">
-                            <a class="text-decoration-none text-white d-block px-3 py-2">Login</a>
-                        </li>
-                        ';
-                    }
+                if (!Login::isLoggedIn()) {
+                    echo '
+                    <li class="custom-menu-item pointer" onclick="openLoginModal()">
+                        <a class="text-decoration-none text-white d-block px-3 py-2">Login</a>
+                    </li>
+                    ';
+                }
                 ?>
-                <li class="custom-menu-item pointer <?php if ($_GET['url'] == 'index.php') echo "custom-menu-item-active" ?>">
+                <li class="custom-menu-item pointer <?php if ($_GET['url'] == 'index.php') { echo "custom-menu-item-active"; } ?>">
                     <a class="text-decoration-none text-white d-block px-3 py-2" href="<?=BASEDIR?>">Home</a>
                 </li>
-                <li class="custom-menu-item pointer <?php if ($_GET['url'] == 'search') echo "custom-menu-item-active" ?>">
+                <li class="custom-menu-item pointer <?php if ($_GET['url'] == 'search') { echo "custom-menu-item-active"; } ?>">
                     <a class="text-decoration-none text-white d-block px-3 py-2" href="<?=BASEDIR?>search">Busca de imóveis</a>
                 </li>
-                <li class="custom-menu-item pointer <?php if ($_GET['url'] == 'contact') echo "custom-menu-item-active" ?>">
+                <li class="custom-menu-item pointer <?php if ($_GET['url'] == 'contact') { echo "custom-menu-item-active"; } ?>">
                     <a class="text-decoration-none text-white d-block px-3 py-2" href="<?=BASEDIR?>contact">Contato</a>
                 </li>
                 <?php
-                    if (!Login::isLoggedIn()) {
-                        echo '
-                        <li class="custom-menu-item pointer" onclick="logout()">
-                            <a class="text-decoration-none text-white d-block px-3 py-2">Logout</a>
-                        </li>
-                        ';
-                    }
+                if (Login::isLoggedIn()) {
+                    echo '
+                    <li class="custom-menu-item pointer" onclick="logout()">
+                        <a class="text-decoration-none text-white d-block px-3 py-2">Sair</a>
+                    </li>
+                    ';
+                }
                 ?>
             </ul>
         </div>
     </div>
 
     <?php
-    if ($_GET['url'] == 'search') {
-        echo <<<HTML
+if ($_GET['url'] == 'search') {
+    echo <<<HTML
             <div class="collapse custom-searchbar-collapse" id="searchbarToggleExternalContent">
                 <div class="bg-dark vh-100 pt-3 text-white">
                     <h5 class="pl-4 pb-3 bg-secondary search-title font-weight-bolder">Pesquisa de imóveis</h5>
@@ -131,8 +148,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
         HTML;
-    }
-    ?>
+}
+?>
 </div>
 <?php
 
@@ -177,7 +194,7 @@ if (!Login::isLoggedIn()) {
     }
 
     function logout() {
-        
+        window.location.href = '?logout';
     }
 
     function goToAdm() {
@@ -188,7 +205,7 @@ if (!Login::isLoggedIn()) {
 
 <?php
 if ($_GET['url'] == 'search') {
-echo <<<HTML
+    echo <<<HTML
     <script>
         var range1 = document.querySelector('.input-range-min')
         var field1 = document.getElementById('minValue')
