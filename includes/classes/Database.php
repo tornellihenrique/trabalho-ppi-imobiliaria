@@ -27,6 +27,31 @@ class Database {
         }
     }
 
+    public static function addQuery($conn, $query, $params = array()) {
+        try {
+            $stmt = $conn->prepare($query);
+            $stmt->execute($params);
+        } catch (Exception $e) {
+            echo "<script>alert(`$e`)</script>";
+            throw new Exception($e);
+        }
+    }
+
+    public static function begin() {
+        $conn = self::connect();
+        $conn->beginTransaction();
+
+        return $conn;
+    }
+
+    public static function commit($conn) {
+        $conn->commit();
+    }
+
+    public static function rollback($conn) {
+        $conn->rollback();
+    }
+
 }
 
 ?>
