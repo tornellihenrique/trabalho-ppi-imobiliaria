@@ -31,6 +31,11 @@ class Database {
         try {
             $stmt = $conn->prepare($query);
             $stmt->execute($params);
+
+            if (explode(' ', $query)[0] == 'SELECT') {
+                $data = $stmt->fetchAll();
+                return $data;
+            }
         } catch (Exception $e) {
             echo "<script>alert(`$e`)</script>";
             throw new Exception($e);

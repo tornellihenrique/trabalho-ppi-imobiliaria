@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!-- jQuery library -->
     <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.mask.js"></script>
     <!-- Popper JS -->
     <script src="assets/js/popper.min.js"></script>
     <!-- Latest compiled JavaScript -->

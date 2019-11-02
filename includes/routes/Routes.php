@@ -32,14 +32,14 @@ Route::set('register-employee', function() {
     Header::CreateView('Header');
     NavbarAdm::CreateView('NavbarAdm');
     RegisterEmployee::CreateView('RegisterEmployee');
-    Footer::CreateView('Footer');
+    FooterStickyBottom::CreateView('FooterStickyBottom');
 });
 
 Route::set('register-customer', function() {
     Header::CreateView('Header');
     NavbarAdm::CreateView('NavbarAdm');
     RegisterCustomer::CreateView('RegisterCustomer');
-    Footer::CreateView('Footer');
+    FooterStickyBottom::CreateView('FooterStickyBottom');
 });
 
 Route::set('register-realty', function() {
