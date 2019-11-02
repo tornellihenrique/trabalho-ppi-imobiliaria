@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
 
-<div class="container mt-5 pt-3">
+<div class="container mt-5 pt-3 adm-container">
     <section>
         <h2 class="text-center">Cadastro de Funcionários</h2>
         <div class="mt-4">
@@ -137,11 +137,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="user">Usuário</label>
+                        <label for="user">Usuário <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="user" name="user" placeholder="joaquim123" required>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="password">Senha</label>
+                        <label for="password">Senha <span class="text-danger">*</span></label>
                         <input type="password" class="form-control" id="password" name="password" placeholder="********" required>
                     </div>
                 </div>

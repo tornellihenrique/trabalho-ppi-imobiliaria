@@ -46,35 +46,35 @@ Route::set('register-realty', function() {
     Header::CreateView('Header');
     NavbarAdm::CreateView('NavbarAdm');
     RegisterRealty::CreateView('RegisterRealty');
-    Footer::CreateView('Footer');
+    FooterStickyBottom::CreateView('FooterStickyBottom');
 });
 
 Route::set('list-employee', function() {
     Header::CreateView('Header');
     NavbarAdm::CreateView('NavbarAdm');
     ListEmployee::CreateView('ListEmployee');
-    Footer::CreateView('Footer');
+    FooterStickyBottom::CreateView('FooterStickyBottom');
 });
 
 Route::set('list-customer', function() {
     Header::CreateView('Header');
     NavbarAdm::CreateView('NavbarAdm');
     ListCustomer::CreateView('ListCustomer');
-    Footer::CreateView('Footer');
+    FooterStickyBottom::CreateView('FooterStickyBottom');
 });
 
 Route::set('list-realty', function() {
     Header::CreateView('Header');
     NavbarAdm::CreateView('NavbarAdm');
     ListRealty::CreateView('ListRealty');
-    Footer::CreateView('Footer');
+    FooterStickyBottom::CreateView('FooterStickyBottom');
 });
 
 Route::set('list-messages', function() {
     Header::CreateView('Header');
     NavbarAdm::CreateView('NavbarAdm');
     ListMessages::CreateView('ListMessages');
-    Footer::CreateView('Footer');
+    FooterStickyBottom::CreateView('FooterStickyBottom');
 });
 
 ?>

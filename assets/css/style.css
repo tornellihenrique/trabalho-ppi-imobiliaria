@@ -306,5 +306,10 @@
 .footer-fixed-bottom {
     position: fixed;
     bottom: 0;
+    z-index: 100;
     width: 100vw;
+}
+
+.adm-container {
+    margin-bottom: 70px;
 }

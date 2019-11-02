@@ -10,7 +10,6 @@ class RegisterEmployee extends Controller {
         return self::query("SELECT * FROM estados");
     }
 
-
     public static function loadNeighborhoods() {
         return self::query("SELECT * FROM bairros");
     }

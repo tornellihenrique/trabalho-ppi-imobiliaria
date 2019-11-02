@@ -25,19 +25,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
 
-<div class="container mt-5 pt-3">
+<div class="container mt-5 pt-3 adm-container">
     <section>
         <h2 class="text-center">Cadastro de Clientes</h2>
         <div class="mt-4">
             <form name="formClientes" method="POST" action="">
                 <div class="form-row">
                     <div class="form-group col-12 col-md-4">
-                        <label for="name">Nome</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Joaquim da Silva">
+                        <label for="name">Nome <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Joaquim da Silva" required>
                     </div>
                     <div class="form-group col-12 col-md-4">
-                        <label for="cpf">CPF</label>
-                        <input type="text" class="form-control" id="cpf" name="cpf" placeholder="123.456.789-00">
+                        <label for="cpf">CPF <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="cpf" name="cpf" placeholder="123.456.789-00" required>
                     </div>
                     <div class="form-group col-12 col-md-4">
                         <label for="gender">Sexo</label>
@@ -77,23 +77,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4 col-12">
-                        <label for="cep">CEP</label>
-                        <input type="text" class="form-control" id="cep" name="cep" placeholder="39.408-724">
+                        <label for="cep">CEP <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="cep" name="cep" placeholder="39.408-724" required>
                     </div>
                     <div class="form-group col-md-6 col-12">
-                        <label for="street">Rua</label>
-                        <input type="text" class="form-control" name="street" id="street" placeholder="Rua dos Bobos">
+                        <label for="street">Rua <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" name="street" id="street" placeholder="Rua dos Bobos" required>
                     </div>
                     <div class="form-group col-md-2 col-12">
-                        <label for="number">Número</label>
-                        <input type="text" class="form-control" name="number" id="number" placeholder="123">
+                        <label for="number">Número <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" name="number" id="number" placeholder="123" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
-                        <label for="neighborhood">Bairro</label>
-                        <select id="neighborhood" name="neighborhood" class="form-control">
-                            <option disabled selected>Selecione um bairro</option>
+                        <label for="neighborhood">Bairro <span class="text-danger">*</span></label>
+                        <select id="neighborhood" name="neighborhood" class="form-control" required>
+                            <option value="" disabled selected>Selecione um bairro</option>
                             <?php
                             foreach ($neighborhoods as $neighborhood) {
                                 $id = $neighborhood['id'];
@@ -104,13 +104,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="city">Cidade</label>
-                        <input type="text" class="form-control" name="city" id="city" placeholder="Uberlândia">
+                        <label for="city">Cidade <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" name="city" id="city" placeholder="Uberlândia" required>
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="uf">Estado</label>
-                        <select id="uf" name="uf" class="form-control">
-                            <option disabled selected>Selecione um estado</option>
+                        <label for="uf">Estado <span class="text-danger">*</span></label>
+                        <select id="uf" name="uf" class="form-control" required>
+                            <option value="" disabled selected>Selecione um estado</option>
                             <?php
                             foreach ($ufs as $uf) {
                                 $id = $uf['sigla'];
