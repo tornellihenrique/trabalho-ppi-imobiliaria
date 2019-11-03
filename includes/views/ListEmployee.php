@@ -44,22 +44,22 @@ if (isset($_GET['deleteEmployee'])) {
                         $salary = $employee['salario'];
                         $cep = $employee['cep'];
 
-                        echo <<<HTML
+                        ?>
                         <tr>
-                            <th scope="row">$user</th>
-                            <td>$name</td>
-                            <td>$cpf</td>
-                            <td>$tel1</td>
-                            <td>$tel2</td>
-                            <td>$dateadm</td>
-                            <td>$job</td>
-                            <td>$salary</td>
-                            <td>$cep</td>
+                            <th scope="row"><?=$user?></th>
+                            <td><?=$name?></td>
+                            <td><?=$cpf?></td>
+                            <td><?=$tel1?></td>
+                            <td><?=$tel2?></td>
+                            <td><?=$dateadm?></td>
+                            <td><?=$job?></td>
+                            <td><?=$salary?></td>
+                            <td><?=$cep?></td>
                             <td>
-                                <button class="btn btn-danger" onclick="deleteEmployee('$user');">Excluir</button>
+                                <button class="btn btn-danger" onclick="deleteEmployee('<?=$user?>');">Excluir</button>
                             </td>
                         </tr>
-                        HTML;
+                        <?php
                     }
                     ?>
                 </tbody>

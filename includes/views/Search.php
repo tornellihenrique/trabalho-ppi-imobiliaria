@@ -2,12 +2,23 @@
 
 $purpose = $neighborhood = $minValue = $maxValue = $tags = NULL;
 
+$params = "";
+
+if (isset($_GET['page'])) {
+    $page = $_GET['page'];
+    $params = "?page=$page";
+} else {
+    $params = "?page=1";
+}
+
 if (isset($_GET['purpose'])) {
     $purpose = $_GET['purpose'];
+    $params .= "&purpose=$purpose";
 }
 
 if (isset($_GET['neighborhood'])) {
     $neighborhood = $_GET['neighborhood'];
+    $params .= "&neighborhood=$neighborhood";
 }
 
 if (isset($_GET['minValue']) && isset($_GET['maxValue'])) {
@@ -16,6 +27,7 @@ if (isset($_GET['minValue']) && isset($_GET['maxValue'])) {
     if ($minValue == 0 && $maxValue == 0) {
         $minValue = $maxValue = NULL;
     }
+    $params .= "&minValue=$minValue&maxValue=$maxValue";
 }
 
 if (isset($_GET['tags'])) {

@@ -1,5 +1,11 @@
 <?php
 
+$isIndex = $_GET['url'] == 'index.php';
+$isSearch = $_GET['url'] == 'search';
+$isContact = $_GET['url'] == 'contact';
+
+$homeUrl = BASEDIR;
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['username']) && isset($_POST['password'])) {
         $username = $_POST['username'];
@@ -21,28 +27,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 if (isset($_GET['logout'])) {
     Login::logout();
-
-    $url = BASEDIR;
-    header("Location: $url");
 }
 
 ?>
+
+<script>
+if (window.location.href.includes('logout')) {
+    window.location.href = '<?=$homeUrl?>';
+}
+</script>
+
 <div class="pos-f-t">
     <nav class="navbar navbar-dark fixed-top bg-transparent">
         <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        
+        
         <?php
-        if ($_GET['url'] == 'search') {
-            echo <<<HTML
+        if ($isSearch) {
+            ?>
                 <button class="searchbar-toggler bg-dark" type="button" data-toggle="collapse"
                     data-target="#searchbarToggleExternalContent" aria-controls="searchbarToggleExternalContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fas fa-search align-middle text-white"></i>
                 </button>
-            HTML;
+            <?php
         }
         ?>
+
+
     </nav>
     <div class="collapse custom-navbar-collapse fixed-top" id="navbarToggleExternalContent">
         <div class="custom-menu-bg bg-dark vh-100 pt-3">
@@ -50,29 +64,41 @@ if (isset($_GET['logout'])) {
             <ul class="custom-menu mt-3">
                 <?php
                 if (!Login::isLoggedIn()) {
-                    echo '
+                    ?>
                     <li class="custom-menu-item pointer" onclick="openLoginModal()">
                         <a class="text-decoration-none text-white d-block px-3 py-2">Login</a>
                     </li>
-                    ';
+                    <?php
                 }
                 ?>
-                <li class="custom-menu-item pointer <?php if ($_GET['url'] == 'index.php') { echo "custom-menu-item-active"; } ?>">
-                    <a class="text-decoration-none text-white d-block px-3 py-2" href="<?=BASEDIR?>">Home</a>
+                <li class="custom-menu-item pointer
+                    <?php if ($isIndex) {
+                        echo 'custom-menu-item-active';
+                    }
+                    ?>">
+                    <a class="text-decoration-none text-white d-block px-3 py-2" href="<?= BASEDIR ?>">Home</a>
                 </li>
-                <li class="custom-menu-item pointer <?php if ($_GET['url'] == 'search') { echo "custom-menu-item-active"; } ?>">
-                    <a class="text-decoration-none text-white d-block px-3 py-2" href="<?=BASEDIR?>search">Busca de imóveis</a>
+                <li class="custom-menu-item pointer
+                    <?php if ($isSearch) {
+                        echo 'custom-menu-item-active';
+                    }
+                    ?>">
+                    <a class="text-decoration-none text-white d-block px-3 py-2" href="<?= BASEDIR ?>search">Busca de imóveis</a>
                 </li>
-                <li class="custom-menu-item pointer <?php if ($_GET['url'] == 'contact') { echo "custom-menu-item-active"; } ?>">
-                    <a class="text-decoration-none text-white d-block px-3 py-2" href="<?=BASEDIR?>contact">Contato</a>
+                <li class="custom-menu-item pointer
+                    <?php if ($isContact) {
+                        echo 'custom-menu-item-active';
+                    }
+                    ?>">
+                    <a class="text-decoration-none text-white d-block px-3 py-2" href="<?= BASEDIR ?>contact">Contato</a>
                 </li>
                 <?php
                 if (Login::isLoggedIn()) {
-                    echo '
+                    ?>
                     <li class="custom-menu-item pointer" onclick="logout()">
                         <a class="text-decoration-none text-white d-block px-3 py-2">Sair</a>
                     </li>
-                    ';
+                    <?php
                 }
                 ?>
             </ul>
@@ -80,8 +106,8 @@ if (isset($_GET['logout'])) {
     </div>
 
     <?php
-if ($_GET['url'] == 'search') {
-    echo <<<HTML
+    if ($isSearch) {
+        ?>
             <div class="collapse custom-searchbar-collapse" id="searchbarToggleExternalContent">
                 <div class="bg-dark vh-100 pt-3 text-white">
                     <h5 class="pl-4 pb-3 bg-secondary search-title font-weight-bolder">Pesquisa de imóveis</h5>
@@ -114,11 +140,11 @@ if ($_GET['url'] == 'search') {
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="currency">R$</span>
                                         </div>
-                                        <input type="number" class="form-control" id="minValue" min="0" max="200000"
+                                        <input type="number" class="form-control" id="minValueInput" min="0" max="200000"
                                             value="0" name="minValue">
                                     </div>
                                 </div>
-                                <input type="range" class="custom-range input-range-min" min="0" max="200000" step="100"
+                                <input type="range" class="custom-range input-range-min" id="minValueRange" min="0" max="200000" step="100"
                                     value="0" aria-describedby="currency">
                             </div>
                             <div class="mt-3">
@@ -128,11 +154,11 @@ if ($_GET['url'] == 'search') {
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="currency">R$</span>
                                         </div>
-                                        <input type="number" class="form-control" id="maxValue" min="0" max="200000"
+                                        <input type="number" class="form-control" id="maxValueInput" min="0" max="200000"
                                             value="0" name="maxValue">
                                     </div>
                                 </div>
-                                <input type="range" class="custom-range input-range-max" min="0" max="200000" step="100"
+                                <input type="range" class="custom-range input-range-max" id="maxValueRange" min="0" max="200000" step="100"
                                     value="0" aria-describedby="currency">
                             </div>
                             <div class="mt-3">
@@ -147,14 +173,14 @@ if ($_GET['url'] == 'search') {
                     </div>
                 </div>
             </div>
-        HTML;
-}
-?>
+        <?php
+    }
+    ?>
 </div>
 <?php
 
 if (!Login::isLoggedIn()) {
-    echo <<<HTML
+    ?>
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -183,7 +209,7 @@ if (!Login::isLoggedIn()) {
             </div>
         </div>
     </div>
-    HTML;
+    <?php
 }
 
 ?>
@@ -204,33 +230,24 @@ if (!Login::isLoggedIn()) {
 </script>
 
 <?php
-if ($_GET['url'] == 'search') {
-    echo <<<HTML
+if ($isSearch) {
+    ?>
     <script>
-        var range1 = document.querySelector('.input-range-min')
-        var field1 = document.getElementById('minValue')
-        var range2 = document.querySelector('.input-range-max')
-        var field2 = document.getElementById('maxValue')
-
-        range1.addEventListener('input', function (e) {
-            field1.value = e.target.value
-        })
-        field1.addEventListener('input', function (e) {
-            range1.value = e.target.value
-        })
-
-        range2.addEventListener('input', function (e) {
-            field2.value = e.target.value
-        })
-        field2.addEventListener('input', function (e) {
-            range2.value = e.target.value
-        })
-
-        function updateValue(e) {
-            var sibling = e.target.previousElementSibling || e.target.nextElementSibling
-            sibling.value = e.target.value
-        }
+        $(document).ready(function() {
+            $('#minValueRange').on('input change', function(e) {
+                $('#minValueInput').val(e.target.value);
+            });
+            $('#minValueInput').on('input change', function(e) {
+                $('#minValueRange').val(e.target.value);
+            });
+            $('#maxValueRange').on('input change', function(e) {
+                $('#maxValueInput').val(e.target.value);
+            });
+            $('#maxValueInput').on('input change', function(e) {
+                $('#maxValueRange').val(e.target.value);
+            });
+        });
     </script>
-HTML;
+<?php
 }
 ?>

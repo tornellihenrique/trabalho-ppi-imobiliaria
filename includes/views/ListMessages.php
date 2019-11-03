@@ -34,17 +34,17 @@ if (isset($_GET['deleteMessage'])) {
                         $phone = $message['telefone'];
                         $purpose = $message['proposta'];
 
-                        echo <<<HTML
+                        ?>
                         <tr>
-                            <th scope="row">$name</th>
-                            <td>$email</td>
-                            <td>$phone</td>
-                            <td>$purpose</td>
+                            <th scope="row"><?=$name?></th>
+                            <td><?=$email?></td>
+                            <td><?=$phone?></td>
+                            <td><?=$purpose?></td>
                             <td>
-                                <button class="btn btn-danger" onclick="deleteMessage('$id');">Excluir</button>
+                                <button class="btn btn-danger" onclick="deleteMessage('<?=$id?>');">Excluir</button>
                             </td>
                         </tr>
-                        HTML;
+                        <?php
                     }
                     ?>
                 </tbody>

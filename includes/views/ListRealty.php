@@ -49,25 +49,25 @@ if (isset($_GET['deleteRealty'])) {
                         $uf = $realty['estado_sigla'];
                         $neighborhood = $realty['bairro'];
 
-                        echo <<<HTML
+                        ?>
                         <tr>
-                            <th scope="row">$id</th>
-                            <td>$owner</td>
-                            <td>$category</td>
-                            <td>$available</td>
-                            <td>$value</td>
-                            <td>$type</td>
-                            <td>$street</td>
-                            <td>$number</td>
-                            <td>$neighborhood</td>
-                            <td>$cep</td>
-                            <td>$city</td>
-                            <td>$uf</td>
+                            <th scope="row"><?=$id?></th>
+                            <td><?=$owner?></td>
+                            <td><?=$category?></td>
+                            <td><?=$available?></td>
+                            <td><?=$value?></td>
+                            <td><?=$type?></td>
+                            <td><?=$street?></td>
+                            <td><?=$number?></td>
+                            <td><?=$neighborhood?></td>
+                            <td><?=$cep?></td>
+                            <td><?=$city?></td>
+                            <td><?=$uf?></td>
                             <td>
-                                <button class="btn btn-danger" onclick="deleteRealty('$id');">Excluir</button>
+                                <button class="btn btn-danger" onclick="deleteRealty('<?=$id?>');">Excluir</button>
                             </td>
                         </tr>
-                        HTML;
+                        <?php
                     }
                     ?>
                 </tbody>

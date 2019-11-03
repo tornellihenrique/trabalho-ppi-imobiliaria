@@ -43,22 +43,22 @@ if (isset($_GET['deleteCustomer'])) {
                         $profession = $customer['profissao'];
                         $cep = $customer['cep'];
 
-                        echo <<<HTML
+                        ?>
                         <tr>
-                            <th scope="row">$cpf</th>
-                            <td>$name</td>
-                            <td>$tel1</td>
-                            <td>$tel2</td>
-                            <td>$email</td>
-                            <td>$sexo</td>
-                            <td>$cs</td>
-                            <td>$profession</td>
-                            <td>$cep</td>
+                            <th scope="row"><?=$cpf?></th>
+                            <td><?=$name?></td>
+                            <td><?=$tel1?></td>
+                            <td><?=$tel2?></td>
+                            <td><?=$email?></td>
+                            <td><?=$sexo?></td>
+                            <td><?=$cs?></td>
+                            <td><?=$profession?></td>
+                            <td><?=$cep?></td>
                             <td>
-                                <button class="btn btn-danger" onclick="deleteCustomer('$cpf');">Excluir</button>
+                                <button class="btn btn-danger" onclick="deleteCustomer('<?=$cpf?>');">Excluir</button>
                             </td>
                         </tr>
-                        HTML;
+                        <?php
                     }
                     ?>
                 </tbody>
