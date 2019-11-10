@@ -364,9 +364,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         url: '<?php echo BASEDIR; ?>api/search-cep.php?cep=' + cep,
                         dataType: 'json',
                         success: function(res) {
-                            $("#city").val(res.localidade);
-                            $("#street").val(res.logradouro);
-                            $("#uf").val(res.uf);
+                            $("#city").val(res.cidade);
+                            $("#street").val(res.rua);
+                            $("#uf").val(res.estado);
                             $("#number").focus();
                         }
                     });
