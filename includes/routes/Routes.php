@@ -11,14 +11,7 @@ Route::set('search', function() {
     Header::CreateView('Header');
     Navbar::CreateView('Navbar');
     Search::CreateView('Search');
-    Footer::CreateView('Footer');
-});
-
-Route::set('contact', function() {
-    Header::CreateView('Header');
-    Navbar::CreateView('Navbar');
-    Contact::CreateView('Contact');
-    Footer::CreateView('Footer');
+    FooterStickyBottom::CreateView('FooterStickyBottom');
 });
 
 Route::set('admin', function() {

@@ -122,8 +122,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <button type="submit" class="btn btn-primary">Cadastrar</button>
                     <button type="reset" class="btn btn-secondary">Limpar</button>
+                    <button type="submit" class="btn btn-primary">Cadastrar</button>
                 </div>
             </form>
         </div>
@@ -153,12 +153,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 var cep = $(this).val().replace('.', '').replace('-', '');
 
                 $.ajax({
-                    url: 'https://viacep.com.br/ws/' + cep + '/json/unicode/',
+                    url: '<?php echo BASEDIR; ?>api/search-cep.php?cep=' + cep,
                     dataType: 'json',
                     success: function(res) {
-                        $("#city").val(res.localidade);
-                        $("#street").val(res.logradouro);
-                        $("#uf").val(res.uf);
+                        $("#city").val(res.cidade);
+                        $("#street").val(res.rua);
+                        $("#uf").val(res.estado);
                         $("#number").focus();
                     }
                 });

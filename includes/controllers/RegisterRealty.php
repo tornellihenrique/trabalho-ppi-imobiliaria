@@ -34,8 +34,8 @@ class RegisterRealty extends Controller
 
             $addresses = self::addQuery($conn, $sql2);
 
-            $sql3 = "INSERT INTO `imoveis`(`id`, `id_cliente`, `id_tipo_imovel`, `id_endereco`, `categoria`, `disponivel`, `valor`) VALUES (null, :customer, 1, :addressId, :category, :available, :cost)";
-            $params3 = array(':customer'=>$customer, ':addressId' => $addresses[0]['id'], ':category' => $category, ':available' => $available, ':cost' => $cost);
+            $sql3 = "INSERT INTO `imoveis`(`id`, `id_cliente`, `id_tipo_imovel`, `id_endereco`, `categoria`, `disponivel`, `valor`, `descricao`) VALUES (null, :customer, 1, :addressId, :category, :available, :cost, :descr)";
+            $params3 = array(':customer'=>$customer, ':addressId' => $addresses[0]['id'], ':category' => $category, ':available' => $available, ':cost' => $cost, ':descr' => $description);
 
             self::addQuery($conn, $sql3, $params3);
 
@@ -43,8 +43,8 @@ class RegisterRealty extends Controller
 
             $realties = self::addQuery($conn, $sql4);
 
-            $sql5 = "INSERT INTO `casas`(`id_imovel`, `qtd_quartos`, `qtd_suites`, `qtd_sala_estar`, `qtd_sala_jantar`, `qtd_vagas_garagem`, `area`, `armario_embutido`, `descricao`) VALUES (:realtyId, :qtdquartos, :qtdsuites, :qtdSalaEstar, :qtdSalaJantar, :qtdVagasGaragem, :area, :armarioEmbutido, :descricao)";
-            $params5 = array(':realtyId' => $realties[0]['id'], ':qtdquartos' => $qtdquartos, ':qtdsuites' => $qtdsuites, ':qtdSalaEstar' => $qtdsalaestar, ':qtdSalaJantar' => $qtdsalajantar, ':qtdVagasGaragem' => $qtdvagasgaragem, ':area' => $area, ':armarioEmbutido' => $armarioemb, ':descricao' => $description);
+            $sql5 = "INSERT INTO `casas`(`id_imovel`, `qtd_quartos`, `qtd_suites`, `qtd_sala_estar`, `qtd_sala_jantar`, `qtd_vagas_garagem`, `area`, `armario_embutido`) VALUES (:realtyId, :qtdquartos, :qtdsuites, :qtdSalaEstar, :qtdSalaJantar, :qtdVagasGaragem, :area, :armarioEmbutido)";
+            $params5 = array(':realtyId' => $realties[0]['id'], ':qtdquartos' => $qtdquartos, ':qtdsuites' => $qtdsuites, ':qtdSalaEstar' => $qtdsalaestar, ':qtdSalaJantar' => $qtdsalajantar, ':qtdVagasGaragem' => $qtdvagasgaragem, ':area' => $area, ':armarioEmbutido' => $armarioemb);
 
             self::addQuery($conn, $sql5, $params5);
 
@@ -84,8 +84,8 @@ class RegisterRealty extends Controller
 
             $addresses = self::addQuery($conn, $sql2);
 
-            $sql3 = "INSERT INTO `imoveis`(`id`, `id_cliente`, `id_tipo_imovel`, `id_endereco`, `categoria`, `disponivel`, `valor`) VALUES (null, :customer, 2, :addressId, :category, :available, :cost)";
-            $params3 = array(':customer'=>$customer, ':addressId' => $addresses[0]['id'], ':category' => $category, ':available' => $available, ':cost' => $cost);
+            $sql3 = "INSERT INTO `imoveis`(`id`, `id_cliente`, `id_tipo_imovel`, `id_endereco`, `categoria`, `disponivel`, `valor`, `descricao`) VALUES (null, :customer, 2, :addressId, :category, :available, :cost, :descr)";
+            $params3 = array(':customer'=>$customer, ':addressId' => $addresses[0]['id'], ':category' => $category, ':available' => $available, ':cost' => $cost, ':descr' => $description);
 
             self::addQuery($conn, $sql3, $params3);
 
@@ -93,8 +93,8 @@ class RegisterRealty extends Controller
 
             $realties = self::addQuery($conn, $sql4);
 
-            $sql5 = "INSERT INTO `apartamentos`(`id_imovel`, `qtd_quartos`, `qtd_suites`, `qtd_sala_estar`, `qtd_sala_jantar`, `qtd_vagas_garagem`, `area`, `armario_embutido`, `descricao`, `andar`, `valor_condominio`, `portaria_24h`) VALUES (:realtyId, :qtdquartos, :qtdsuites, :qtdSalaEstar, :qtdSalaJantar, :qtdVagasGaragem, :area, :armarioEmbutido, :descricao, :andar, :valorCondominio, :portaria)";
-            $params5 = array(':realtyId' => $realties[0]['id'], ':qtdquartos' => $qtdquartos, ':qtdsuites' => $qtdsuites, ':qtdSalaEstar' => $qtdsalaestar, ':qtdSalaJantar' => $qtdsalajantar, ':qtdVagasGaragem' => $qtdvagasgaragem, ':area' => $areaCasa, ':armarioEmbutido' => $armarioemb, ':descricao' => $description, ':andar' => $floor, ':valorCondominio' => $valorcond, ':portaria' => $portaria24hrs);
+            $sql5 = "INSERT INTO `apartamentos`(`id_imovel`, `qtd_quartos`, `qtd_suites`, `qtd_sala_estar`, `qtd_sala_jantar`, `qtd_vagas_garagem`, `area`, `armario_embutido`, `andar`, `valor_condominio`, `portaria_24h`) VALUES (:realtyId, :qtdquartos, :qtdsuites, :qtdSalaEstar, :qtdSalaJantar, :qtdVagasGaragem, :area, :armarioEmbutido, :andar, :valorCondominio, :portaria)";
+            $params5 = array(':realtyId' => $realties[0]['id'], ':qtdquartos' => $qtdquartos, ':qtdsuites' => $qtdsuites, ':qtdSalaEstar' => $qtdsalaestar, ':qtdSalaJantar' => $qtdsalajantar, ':qtdVagasGaragem' => $qtdvagasgaragem, ':area' => $areaCasa, ':armarioEmbutido' => $armarioemb, ':andar' => $floor, ':valorCondominio' => $valorcond, ':portaria' => $portaria24hrs);
 
             self::addQuery($conn, $sql5, $params5);
 
@@ -118,7 +118,7 @@ class RegisterRealty extends Controller
         }
     }
 
-    public static function createCommercialRoom($cep, $street, $house_number, $neighborhood, $city, $uf, $category, $available, $customer, $pictures, $cost, $areaSalaC, $qtdbanheiros, $qtdcomodos)
+    public static function createCommercialRoom($cep, $street, $house_number, $neighborhood, $city, $uf, $category, $available, $customer, $pictures, $cost, $areaSalaC, $qtdbanheiros, $qtdcomodos, $description)
     {
         $conn = self::begin();
 
@@ -134,8 +134,8 @@ class RegisterRealty extends Controller
 
             $addresses = self::addQuery($conn, $sql2);
 
-            $sql3 = "INSERT INTO `imoveis`(`id`, `id_cliente`, `id_tipo_imovel`, `id_endereco`, `categoria`, `disponivel`, `valor`) VALUES (null, :customer, 3, :addressId, :category, :available, :cost)";
-            $params3 = array(':customer'=>$customer, ':addressId' => $addresses[0]['id'], ':category' => $category, ':available' => $available, ':cost' => $cost);
+            $sql3 = "INSERT INTO `imoveis`(`id`, `id_cliente`, `id_tipo_imovel`, `id_endereco`, `categoria`, `disponivel`, `valor`, `descricao`) VALUES (null, :customer, 3, :addressId, :category, :available, :cost, :descr)";
+            $params3 = array(':customer'=>$customer, ':addressId' => $addresses[0]['id'], ':category' => $category, ':available' => $available, ':cost' => $cost, ':descr' => $description);
 
             self::addQuery($conn, $sql3, $params3);
 
@@ -168,7 +168,7 @@ class RegisterRealty extends Controller
         }
     }
 
-    public static function createTerrain($cep, $street, $house_number, $neighborhood, $city, $uf, $category, $available, $customer, $pictures, $cost, $largura, $comprimento, $aclive)
+    public static function createTerrain($cep, $street, $house_number, $neighborhood, $city, $uf, $category, $available, $customer, $pictures, $cost, $largura, $comprimento, $aclive, $description)
     {
         $conn = self::begin();
 
@@ -184,8 +184,8 @@ class RegisterRealty extends Controller
 
             $addresses = self::addQuery($conn, $sql2);
 
-            $sql3 = "INSERT INTO `imoveis`(`id`, `id_cliente`, `id_tipo_imovel`, `id_endereco`, `categoria`, `disponivel`, `valor`) VALUES (null, :customer, 4, :addressId, :category, :available, :cost)";
-            $params3 = array(':customer'=>$customer, ':addressId' => $addresses[0]['id'], ':category' => $category, ':available' => $available, ':cost' => $cost);
+            $sql3 = "INSERT INTO `imoveis`(`id`, `id_cliente`, `id_tipo_imovel`, `id_endereco`, `categoria`, `disponivel`, `valor`, `descricao`) VALUES (null, :customer, 4, :addressId, :category, :available, :cost, :descr)";
+            $params3 = array(':customer'=>$customer, ':addressId' => $addresses[0]['id'], ':category' => $category, ':available' => $available, ':cost' => $cost, ':descr' => $description);
 
             self::addQuery($conn, $sql3, $params3);
 

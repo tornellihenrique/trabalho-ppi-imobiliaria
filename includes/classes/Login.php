@@ -10,6 +10,13 @@ class Login {
         }
     }
 
+    public static function getLoggedUser() {
+        if (isset($_SESSION['username'])) {
+            return $_SESSION['username'];
+        }
+        return '';
+    }
+
     public static function verifyPassword($password, $pHash) {
         return password_verify($password, $pHash);
     }

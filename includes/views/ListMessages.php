@@ -18,6 +18,7 @@ if (isset($_GET['deleteMessage'])) {
             <table class="table table-striped table-hover">
                 <thead class="thead-dark">
                     <tr>
+                        <th scope="col">Imóvel</th>
                         <th scope="col">Nome</th>
                         <th scope="col">Email</th>
                         <th scope="col">Telefone</th>
@@ -29,6 +30,7 @@ if (isset($_GET['deleteMessage'])) {
                     <?php
                     foreach ($messages as $message) {
                         $id = $message['id'];
+                        $realty = $message['id_imovel'];
                         $name = $message['nome'];
                         $email = $message['email'];
                         $phone = $message['telefone'];
@@ -36,7 +38,8 @@ if (isset($_GET['deleteMessage'])) {
 
                         ?>
                         <tr>
-                            <th scope="row"><?=$name?></th>
+                            <th scope="row"><?=$realty?></th>
+                            <th><?=$name?></th>
                             <td><?=$email?></td>
                             <td><?=$phone?></td>
                             <td><?=$purpose?></td>

@@ -1,5 +1,7 @@
 <?php
 
+$userLogged = Login::getLoggedUser();
+
 $isIndex = $_GET['url'] == 'index.php';
 $isSearch = $_GET['url'] == 'search';
 $isContact = $_GET['url'] == 'contact';
@@ -28,6 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 if (isset($_GET['logout'])) {
     Login::logout();
 }
+
+$loadNeighborhood = static::loadNeighborhoods();
 
 ?>
 
@@ -69,6 +73,12 @@ if (window.location.href.includes('logout')) {
                         <a class="text-decoration-none text-white d-block px-3 py-2">Login</a>
                     </li>
                     <?php
+                } else {
+                ?>
+                    <li class="custom-menu-item pointer" onclick="goToAdmin()">
+                        <a class="text-decoration-none text-white d-block px-3 py-2"><?=$userLogged?></a>
+                    </li>
+                <?php
                 }
                 ?>
                 <li class="custom-menu-item pointer
@@ -84,13 +94,6 @@ if (window.location.href.includes('logout')) {
                     }
                     ?>">
                     <a class="text-decoration-none text-white d-block px-3 py-2" href="<?= BASEDIR ?>search">Busca de imóveis</a>
-                </li>
-                <li class="custom-menu-item pointer
-                    <?php if ($isContact) {
-                        echo 'custom-menu-item-active';
-                    }
-                    ?>">
-                    <a class="text-decoration-none text-white d-block px-3 py-2" href="<?= BASEDIR ?>contact">Contato</a>
                 </li>
                 <?php
                 if (Login::isLoggedIn()) {
@@ -115,22 +118,26 @@ if (window.location.href.includes('logout')) {
                         <form action="" method="GET" class="h-100">
                             <div class="d-flex justify-content-between mt-4">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="aquisition" name="purpose" value="aquisition"
+                                    <input type="radio" id="aquisition" name="purpose" value="A"
                                         class="custom-control-input">
                                     <label class="custom-control-label" for="aquisition">Aquisição</label>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="location" name="purpose" value="location"
+                                    <input type="radio" id="location" name="purpose" value="L"
                                         class="custom-control-input">
                                     <label class="custom-control-label" for="location">Locação</label>
                                 </div>
                             </div>
                             <div class="mt-3">
                                 <select class="custom-select" name="neighborhood">
-                                    <option selected disabled>Bairro</option>
-                                    <option value="1">Santa Mônica</option>
-                                    <option value="2">Centro</option>
-                                    <option value="3">Santa Luzia</option>
+                                    <option selected disabled>Selecione o bairro</option>
+                                    <?php
+                                    foreach ($loadNeighborhood as $n) {
+                                        $id = $n['id'];
+                                        $name = $n['nome'];
+                                        echo "<option value='$id'>$name</option>";
+                                    }
+                                    ?>
                                 </select>
                             </div>
                             <div class="mt-3">
@@ -166,8 +173,8 @@ if (window.location.href.includes('logout')) {
                                     placeholder="Outras informações">
                             </div>
                             <div class="pull-bottom mb-3 px-4 d-flex justify-content-between w-100">
-                                <button type="reset" class="btn btn-secondary">Limpar</button>
                                 <button type="submit" class="btn btn-primary">Buscar</button>
+                                <button type="reset" class="btn btn-secondary">Limpar</button>
                             </div>
                         </form>
                     </div>
@@ -201,8 +208,8 @@ if (!Login::isLoggedIn()) {
                             <input type="password" class="form-control" id="password" name="password" placeholder="**********" required>
                         </div>
                         <div class="d-flex justify-content-between">
-                            <button type="submit" class="btn btn-primary">Entrar</button>
                             <button type="reset" class="btn btn-secondary">Limpar</button>
+                            <button type="submit" class="btn btn-primary">Entrar</button>
                         </div>
                     </form>
                 </div>
@@ -223,9 +230,8 @@ if (!Login::isLoggedIn()) {
         window.location.href = '?logout';
     }
 
-    function goToAdm() {
-        var win = window.open('adm.html', '_blank');
-        win.focus();
+    function goToAdmin() {
+        window.location.href = '<?php echo BASEDIR; ?>admin';
     }
 </script>
 

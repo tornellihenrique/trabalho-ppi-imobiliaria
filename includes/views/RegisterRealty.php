@@ -19,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $customer = isset($_POST['customer']) ? $_POST['customer'] : null;
     $pictures = isset($_FILES['pictures']) ? $_FILES['pictures'] : null;
     $cost = isset($_POST['cost']) ? $_POST['cost'] : null;
+    $description = isset($_POST['description']) ? $_POST['description'] : null;
 
     if (isset($_POST['realtyType'])) {
         $realtyType = $_POST['realtyType'];
@@ -33,7 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $qtdvagasgaragem = isset($_POST['qtdvagasgaragem']) ? $_POST['qtdvagasgaragem'] : null;
                 $areaCasa = isset($_POST['areaCasaAp']) ? $_POST['areaCasaAp'] : null;
                 $armarioemb = isset($_POST['armarioemb']) ? $_POST['armarioemb'] : null;
-                $description = isset($_POST['description']) ? $_POST['description'] : null;
 
                 static::createHouse($cep, $street, $house_number, $neighborhood, $city, $uf, $category, $available, $customer, $pictures, $cost, $qtdquartos, $qtdsuites, $qtdsalaestar, $qtdsalajantar, $qtdvagasgaragem, $areaCasa, $armarioemb, $description);
                 break;
@@ -47,7 +47,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $qtdvagasgaragem = isset($_POST['qtdvagasgaragem']) ? $_POST['qtdvagasgaragem'] : null;
                 $areaAp = isset($_POST['areaCasaAp']) ? $_POST['areaCasaAp'] : null;
                 $armarioemb = isset($_POST['armarioemb']) ? $_POST['armarioemb'] : null;
-                $description = isset($_POST['description']) ? $_POST['description'] : null;
                 $floor = isset($_POST['floor']) ? $_POST['floor'] : null;
                 $valorcond = isset($_POST['valorcond']) ? $_POST['valorcond'] : null;
                 $portaria24hrs = isset($_POST['portaria24hrs']) ? $_POST['portaria24hrs'] : null;
@@ -61,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $qtdbanheiros = isset($_POST['qtdbanheiros']) ? $_POST['qtdbanheiros'] : null;
                 $qtdcomodos = isset($_POST['qtdcomodos']) ? $_POST['qtdcomodos'] : null;
 
-                static::createCommercialRoom($cep, $street, $house_number, $neighborhood, $city, $uf, $category, $available, $customer, $pictures, $cost, $areaSalaC, $qtdbanheiros, $qtdcomodos);
+                static::createCommercialRoom($cep, $street, $house_number, $neighborhood, $city, $uf, $category, $available, $customer, $pictures, $cost, $areaSalaC, $qtdbanheiros, $qtdcomodos, $description);
                 break;
 
             case "4":
@@ -70,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $comprimento = isset($_POST['comprimento']) ? $_POST['comprimento'] : null;
                 $aclive = isset($_POST['aclive']) ? $_POST['aclive'] : null;
 
-                static::createTerrain($cep, $street, $house_number, $neighborhood, $city, $uf, $category, $available, $customer, $pictures, $cost, $largura, $comprimento, $aclive);
+                static::createTerrain($cep, $street, $house_number, $neighborhood, $city, $uf, $category, $available, $customer, $pictures, $cost, $largura, $comprimento, $aclive, $description);
                 break;
         }
     }
@@ -201,6 +200,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </select>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label for="description">Descrição</label>
+                        <textarea class="form-control" id="description" name="description" cols="4"></textarea>
+                    </div>
                     <div id="infoImoveisDin1" class="d-none">
                         <div class="form-row">
                             <div class="form-group col-6 col-md-3">
@@ -247,10 +250,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="description">Descrição</label>
-                            <textarea class="form-control" id="description" name="description" cols="4"></textarea>
                         </div>
                     </div>
                     <div id="infoImoveisDin2" class="d-none">
@@ -343,8 +342,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                     </div>
                     <div class="d-flex justify-content-between">
-                        <button type="submit" class="btn btn-primary">Cadastrar</button>
                         <button type="reset" class="btn btn-secondary">Limpar</button>
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
                     </div>
                 </form>
             </div>
@@ -362,7 +361,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     var cep = $(this).val().replace('.', '').replace('-', '');
 
                     $.ajax({
-                        url: 'https://viacep.com.br/ws/' + cep + '/json/unicode/',
+                        url: '<?php echo BASEDIR; ?>api/search-cep.php?cep=' + cep,
                         dataType: 'json',
                         success: function(res) {
                             $("#city").val(res.localidade);
