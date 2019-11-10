@@ -50,7 +50,13 @@ foreach ($realties as $i => $r) {
     <section>
         <h2 class="text-center">Resultado de busca</h2>
         <div class="mt-4">
+            <?php
+            if (count($realties) == 0) {
+            ?>
             <h6 class="text-center">Nenhum imóvel encontrado</h6>
+            <?php
+            }
+            ?>
             <div class="row">
                 <?php
                 foreach ($realties as $r) {
