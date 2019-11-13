@@ -76,6 +76,11 @@ if (<?php if (Login::isLoggedIn()) { echo "false"; } else { echo "true"; } ?> ||
                     </a>
                 </li>
                 <li class="custom-menu-item pointer">
+                    <a class="text-decoration-none text-white d-block px-3 py-2 pointer" onclick="gotHome()">
+                        Voltar
+                    </a>
+                </li>
+                <li class="custom-menu-item pointer">
                     <a class="text-decoration-none text-white d-block px-3 py-2 pointer" onclick="logout()">
                         Sair
                     </a>
@@ -88,5 +93,9 @@ if (<?php if (Login::isLoggedIn()) { echo "false"; } else { echo "true"; } ?> ||
 <script>
     function logout() {
         window.location.href = '?logout';
+    }
+
+    function gotHome() {
+        window.location.href = '<?php echo BASEDIR; ?>';
     }
 </script>
