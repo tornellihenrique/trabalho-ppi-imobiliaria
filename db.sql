@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 10-Nov-2019 às 22:47
--- Versão do servidor: 10.4.8-MariaDB
--- versão do PHP: 7.3.10
+-- Host: localhost:3306
+-- Tempo de geração: 13/11/2019 às 14:10
+-- Versão do servidor: 5.7.23-23
+-- Versão do PHP: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,16 +21,17 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `sweeth00_sweethome`
 --
-CREATE DATABASE IF NOT EXISTS `sweeth00_sweethome` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE IF NOT EXISTS `sweeth00_sweethome` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 USE `sweeth00_sweethome`;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `apartamentos`
+-- Estrutura para tabela `apartamentos`
 --
 
-CREATE TABLE IF NOT EXISTS `apartamentos` (
+DROP TABLE IF EXISTS `apartamentos`;
+CREATE TABLE `apartamentos` (
   `id_imovel` int(11) NOT NULL,
   `qtd_quartos` int(11) DEFAULT NULL,
   `qtd_suites` int(11) DEFAULT NULL,
@@ -41,41 +42,41 @@ CREATE TABLE IF NOT EXISTS `apartamentos` (
   `armario_embutido` tinyint(1) DEFAULT NULL,
   `andar` int(11) DEFAULT NULL,
   `valor_condominio` decimal(10,2) DEFAULT NULL,
-  `portaria_24h` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`id_imovel`)
+  `portaria_24h` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `bairros`
+-- Estrutura para tabela `bairros`
 --
 
-CREATE TABLE IF NOT EXISTS `bairros` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
+DROP TABLE IF EXISTS `bairros`;
+CREATE TABLE `bairros` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `cargo`
+-- Estrutura para tabela `cargo`
 --
 
-CREATE TABLE IF NOT EXISTS `cargo` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `descricao` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+DROP TABLE IF EXISTS `cargo`;
+CREATE TABLE `cargo` (
+  `id` int(11) NOT NULL,
+  `descricao` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `casas`
+-- Estrutura para tabela `casas`
 --
 
-CREATE TABLE IF NOT EXISTS `casas` (
+DROP TABLE IF EXISTS `casas`;
+CREATE TABLE `casas` (
   `id_imovel` int(11) NOT NULL,
   `qtd_quartos` int(11) DEFAULT NULL,
   `qtd_suites` int(11) DEFAULT NULL,
@@ -83,31 +84,31 @@ CREATE TABLE IF NOT EXISTS `casas` (
   `qtd_sala_jantar` int(11) DEFAULT NULL,
   `qtd_vagas_garagem` int(11) DEFAULT NULL,
   `area` int(11) DEFAULT NULL,
-  `armario_embutido` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`id_imovel`)
+  `armario_embutido` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `cep`
+-- Estrutura para tabela `cep`
 --
 
-CREATE TABLE IF NOT EXISTS `cep` (
+DROP TABLE IF EXISTS `cep`;
+CREATE TABLE `cep` (
   `cep` int(11) NOT NULL,
   `rua` text NOT NULL,
   `cidade` text NOT NULL,
-  `estado` varchar(2) NOT NULL,
-  PRIMARY KEY (`cep`)
+  `estado` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `clientes`
+-- Estrutura para tabela `clientes`
 --
 
-CREATE TABLE IF NOT EXISTS `clientes` (
+DROP TABLE IF EXISTS `clientes`;
+CREATE TABLE `clientes` (
   `cpf` varchar(15) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `id_endereco` int(11) NOT NULL,
@@ -116,46 +117,46 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   `email` varchar(100) DEFAULT NULL,
   `sexo` varchar(2) DEFAULT NULL,
   `estado_civil` varchar(100) DEFAULT NULL,
-  `profissao` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`cpf`)
+  `profissao` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `enderecos`
+-- Estrutura para tabela `enderecos`
 --
 
-CREATE TABLE IF NOT EXISTS `enderecos` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `enderecos`;
+CREATE TABLE `enderecos` (
+  `id` int(11) NOT NULL,
   `rua` varchar(200) NOT NULL,
   `numero` int(11) NOT NULL,
   `cep` int(8) NOT NULL,
   `cidade` varchar(100) NOT NULL,
   `estado_sigla` char(2) NOT NULL,
-  `bairro_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  `bairro_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `estados`
+-- Estrutura para tabela `estados`
 --
 
-CREATE TABLE IF NOT EXISTS `estados` (
+DROP TABLE IF EXISTS `estados`;
+CREATE TABLE `estados` (
   `sigla` char(2) NOT NULL,
-  `nome` varchar(100) NOT NULL,
-  PRIMARY KEY (`sigla`)
+  `nome` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `fotos_imovel`
+-- Estrutura para tabela `fotos_imovel`
 --
 
-CREATE TABLE IF NOT EXISTS `fotos_imovel` (
+DROP TABLE IF EXISTS `fotos_imovel`;
+CREATE TABLE `fotos_imovel` (
   `id_imovel` int(11) NOT NULL,
   `file_name` varchar(300) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -163,10 +164,11 @@ CREATE TABLE IF NOT EXISTS `fotos_imovel` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `funcionarios`
+-- Estrutura para tabela `funcionarios`
 --
 
-CREATE TABLE IF NOT EXISTS `funcionarios` (
+DROP TABLE IF EXISTS `funcionarios`;
+CREATE TABLE `funcionarios` (
   `usuario` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `senha` varchar(128) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `nome` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -176,83 +178,209 @@ CREATE TABLE IF NOT EXISTS `funcionarios` (
   `telefone_celular` varchar(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `data_ingresso` date DEFAULT NULL,
   `id_cargo` int(2) DEFAULT NULL,
-  `salario` double DEFAULT NULL,
-  PRIMARY KEY (`usuario`)
+  `salario` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `imoveis`
+-- Estrutura para tabela `imoveis`
 --
 
-CREATE TABLE IF NOT EXISTS `imoveis` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `imoveis`;
+CREATE TABLE `imoveis` (
+  `id` int(11) NOT NULL,
   `id_cliente` varchar(15) NOT NULL,
   `id_tipo_imovel` int(11) NOT NULL,
   `id_endereco` int(11) NOT NULL,
   `categoria` varchar(2) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `disponivel` tinyint(1) NOT NULL,
   `valor` decimal(20,2) NOT NULL,
-  `descricao` longtext NOT NULL,
-  PRIMARY KEY (`id`)
+  `descricao` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `mensagens`
+-- Estrutura para tabela `mensagens`
 --
 
-CREATE TABLE IF NOT EXISTS `mensagens` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `mensagens`;
+CREATE TABLE `mensagens` (
+  `id` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `telefone` varchar(16) NOT NULL,
-  `proposta` text NOT NULL,
-  `id_imovel` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  `telefone` int(11) NOT NULL,
+  `proposta` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `salas_comerciais`
+-- Estrutura para tabela `salas_comerciais`
 --
 
-CREATE TABLE IF NOT EXISTS `salas_comerciais` (
+DROP TABLE IF EXISTS `salas_comerciais`;
+CREATE TABLE `salas_comerciais` (
   `id_imovel` int(11) NOT NULL,
   `area` int(11) DEFAULT NULL,
   `qtd_banheiros` int(11) DEFAULT NULL,
-  `qtd_comodos` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_imovel`)
+  `qtd_comodos` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `terrenos`
+-- Estrutura para tabela `terrenos`
 --
 
-CREATE TABLE IF NOT EXISTS `terrenos` (
+DROP TABLE IF EXISTS `terrenos`;
+CREATE TABLE `terrenos` (
   `id_imovel` int(11) NOT NULL,
   `largura` int(11) DEFAULT NULL,
   `comprimento` int(11) DEFAULT NULL,
-  `possui_aclive` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`id_imovel`)
+  `possui_aclive` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tipo_imovel`
+-- Estrutura para tabela `tipo_imovel`
 --
 
-CREATE TABLE IF NOT EXISTS `tipo_imovel` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `descricao` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
+DROP TABLE IF EXISTS `tipo_imovel`;
+CREATE TABLE `tipo_imovel` (
+  `id` int(11) NOT NULL,
+  `descricao` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Índices de tabelas apagadas
+--
+
+--
+-- Índices de tabela `apartamentos`
+--
+ALTER TABLE `apartamentos`
+  ADD PRIMARY KEY (`id_imovel`);
+
+--
+-- Índices de tabela `bairros`
+--
+ALTER TABLE `bairros`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `cargo`
+--
+ALTER TABLE `cargo`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `casas`
+--
+ALTER TABLE `casas`
+  ADD PRIMARY KEY (`id_imovel`);
+
+--
+-- Índices de tabela `cep`
+--
+ALTER TABLE `cep`
+  ADD PRIMARY KEY (`cep`);
+
+--
+-- Índices de tabela `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`cpf`);
+
+--
+-- Índices de tabela `enderecos`
+--
+ALTER TABLE `enderecos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `estados`
+--
+ALTER TABLE `estados`
+  ADD PRIMARY KEY (`sigla`);
+
+--
+-- Índices de tabela `funcionarios`
+--
+ALTER TABLE `funcionarios`
+  ADD PRIMARY KEY (`usuario`);
+
+--
+-- Índices de tabela `imoveis`
+--
+ALTER TABLE `imoveis`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `mensagens`
+--
+ALTER TABLE `mensagens`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `salas_comerciais`
+--
+ALTER TABLE `salas_comerciais`
+  ADD PRIMARY KEY (`id_imovel`);
+
+--
+-- Índices de tabela `terrenos`
+--
+ALTER TABLE `terrenos`
+  ADD PRIMARY KEY (`id_imovel`);
+
+--
+-- Índices de tabela `tipo_imovel`
+--
+ALTER TABLE `tipo_imovel`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de tabelas apagadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `bairros`
+--
+ALTER TABLE `bairros`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `cargo`
+--
+ALTER TABLE `cargo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `enderecos`
+--
+ALTER TABLE `enderecos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `imoveis`
+--
+ALTER TABLE `imoveis`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `mensagens`
+--
+ALTER TABLE `mensagens`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `tipo_imovel`
+--
+ALTER TABLE `tipo_imovel`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
